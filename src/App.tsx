@@ -1,7 +1,21 @@
 import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-export const App: React.FC = () => {
+import { Home } from './components/Home'
+import { NotFound } from './components/NotFound'
+import { Search } from './components/Search'
+
+import './style/index.css'
+import './style/app.css'
+
+export function App() {
   return (
-    <h1>Hello world!</h1>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/search" component={Search} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   )
 }
