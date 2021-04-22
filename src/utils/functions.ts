@@ -3,6 +3,6 @@ export function validText(x: string) {
 	return v === null || (/^ *$/).test(v) || v.length > 9999
 }
 
-export function invalidValue(s: string) {
-	return s === null || (/^ *$/).test(s)
+export function invalidValue(s: string, l: number) {
+	return s === null || (/^ *$/).test(s) || s.length > l
 }

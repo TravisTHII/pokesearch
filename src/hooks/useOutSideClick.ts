@@ -1,11 +1,5 @@
 import { useEffect, useRef } from 'react'
 
-interface Args {
-  handler: (e?: Event) => void,
-  type: string,
-  dependency?: boolean
-}
-
 const useOutsideClick = (
   handler: (e?: Event) => void,
   type: string,

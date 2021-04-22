@@ -11,6 +11,7 @@ export function Header() {
             href="https://github.com/TravisTHII/search"
             target="_blank"
             rel="noopener noreferrer"
+            title="See project code"
           >
             <FiCode />
           </a>
@@ -19,6 +20,7 @@ export function Header() {
             href="https://github.com/TravisTHII"
             target="_blank"
             rel="noopener noreferrer"
+            title="My GitHub"
           >
             <FiGithub />
           </a>
