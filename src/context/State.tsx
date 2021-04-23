@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useReducer } from 'react'
 // @ts-ignore
-import { Pokedex } from 'pokeapi-js-wrapper'
+import Pokedex from 'pokedex-promise-v2'
 
 import Reducer from './Reducer'
 
@@ -11,12 +11,17 @@ interface ProviderProps {
 }
 
 interface ContextProviderProps {
+  pokemon: any,
   loading: boolean,
+  fetched: boolean,
   getPokemon?: (name: string) => void
+  isLoading?: (loading: boolean) => void
 }
 
 export const initialState: ContextProviderProps = {
-  loading: false
+  pokemon: {},
+  loading: false,
+  fetched: false,
 }
 
 export const Context = createContext(initialState)
@@ -28,30 +33,40 @@ export const Provider = ({ children }: ProviderProps) => {
   const getPokemon = async (name: string) => {
     try {
 
-      console.log(name)
+      const P = new Pokedex
+
+      const pokemon = await P.getPokemonByName(name)
 
       dispatch({
-        type: 'LOADING'
+        type: 'GET_POKEMON',
+        payload: {
+          pokemon
+        }
       })
-
-      const P = new Pokedex.Pokedex()
-
-      const data = await P.getPokemonByName(name)
-
-      console.log(data)
-
 
     } catch (error) {
 
       console.error(error)
+      
+      isLoading(false)
 
     }
+  }
+
+  const isLoading = (loading: boolean) => {
+    dispatch({
+      type: 'LOADING',
+      payload: {
+        loading
+      }
+    })
   }
 
   return (
     <Context.Provider value={{
       ...state,
-      getPokemon
+      getPokemon,
+      isLoading
     }}>
       { children}
     </Context.Provider>

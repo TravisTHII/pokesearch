@@ -1,4 +1,4 @@
 export const STATE = {
-	GET: 'GET',
+	GET_POKEMON: 'GET_POKEMON',
 	LOADING: 'LOADING',
 }

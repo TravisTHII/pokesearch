@@ -9,12 +9,12 @@ import { invalidValue, validText } from '../utils/functions'
 
 export function Search() {
 
-  const { loading, getPokemon } = useContext(Context)
+  const { loading, getPokemon, isLoading } = useContext(Context)
 
   const [value, setValue] = useState('')
   const [active, setActive] = useState(false)
 
-  const timeOut: null | ReturnType<typeof setTimeout> = null
+  const timeOutRef = useRef()
 
   const startSearch = (e: any) => {
 
@@ -22,26 +22,31 @@ export function Search() {
 
     setValue(value)
 
-    // if (null !== timeOutRef.current) {
-    //   clearTimeout(timeOutRef.current)
-    // }
-
-    if (timeOut)
-      clearTimeout(timeOut)
+    clearTimeout(timeOutRef.current)
 
     if (!invalidValue(value, 50)) {
 
+      if (isLoading)
+        isLoading(true)
+
       setActive(true)
 
-      setTimeout(() => {
+      const t: any = setTimeout(() => {
 
         if (getPokemon)
           getPokemon(value)
 
       }, 500)
 
+      timeOutRef.current = t
+
     } else {
+
       setActive(false)
+
+      if (isLoading)
+        isLoading(false)
+
     }
 
   }
