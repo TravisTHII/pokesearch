@@ -37,6 +37,10 @@ export const Provider = ({ children }: ProviderProps) => {
 
       const pokemon = await P.getPokemonByName(name)
 
+      const species = await P.getPokemonSpeciesByName(pokemon.name)
+
+      console.log(species);
+      
       dispatch({
         type: 'GET_POKEMON',
         payload: {

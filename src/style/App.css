@@ -23,6 +23,11 @@ button {
   cursor: pointer;
 }
 
+img {
+  width: inherit;
+  height: inherit;
+}
+
 /*
 ===============
 Header
@@ -115,11 +120,20 @@ Search
 
 /*
 ===============
-Search
+Pokemon
 ===============
 */
 
+.pokemon {
+  height: 500px;
+  width: 700px;
+  margin: 0 auto;
+}
 
+.poke_image {
+  width: 300px;
+  height: 300px;
+}
 
 /*
 ===============

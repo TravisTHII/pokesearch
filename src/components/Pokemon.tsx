@@ -10,10 +10,17 @@ export function Pokemon() {
     <>
       {pokemon && fetched &&
         <div className="pokemon">
-          <h1>{pokemon.name}</h1>
-          <img src={pokemon.sprites.other['official-artwork'].front_default} alt="" />
-          {/* <img src={pokemon.sprites.other.dream_world.front_default} alt="" /> */}
-          {/* <img src={pokemon.sprites.front_default} alt="" /> */}
+          <div className="poek_name">
+            <span>
+              <h1>{pokemon.name}</h1>
+            </span>
+            <span>
+              <p>{pokemon.id}</p>
+            </span>
+          </div>
+          <div className="poke_image">
+            <img src={pokemon.sprites.other['official-artwork'].front_default} alt="" />
+          </div>
         </div>
       }
     </>

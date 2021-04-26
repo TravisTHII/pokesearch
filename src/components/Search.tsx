@@ -5,7 +5,7 @@ import { Context } from '../context/State'
 
 import { Spinner } from './includes/Spinner'
 
-import { invalidValue, validText } from '../utils/functions'
+import { invalidValue } from '../utils/functions'
 
 export function Search() {
 
@@ -14,11 +14,11 @@ export function Search() {
   const [value, setValue] = useState('')
   const [active, setActive] = useState(false)
 
-  const timeOutRef = useRef()
+  const timeOutRef = useRef<number>(null!)
 
-  const startSearch = (e: any) => {
+  const startSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
-    const value = e.target.value
+    const value = e.target.value.trim()
 
     setValue(value)
 
@@ -31,7 +31,7 @@ export function Search() {
 
       setActive(true)
 
-      const t: any = setTimeout(() => {
+      const t = window.setTimeout(() => {
 
         if (getPokemon)
           getPokemon(value)
@@ -55,6 +55,16 @@ export function Search() {
     setValue('')
     setActive(false)
   }
+
+  const SearchButton =
+    <button className="search_button flex_ui">
+      <FiSearch />
+    </button>
+
+  const SearchSpinner =
+    <div className="search_loader flex_ui">
+      <Spinner style={{ width: '30px', height: '30px' }} />
+    </div>
 
   return (
     <div className="search flex_ui">
@@ -84,10 +94,7 @@ export function Search() {
             <FiX />
           </button>
         }
-        {!loading
-          ? <button className="search_button flex_ui"><FiSearch /></button>
-          : <div className="search_loader flex_ui"><Spinner style={{ width: '30px', height: '30px' }} /></div>
-        }
+        {!loading ? SearchButton : SearchSpinner}
       </div>
     </div>
   )
