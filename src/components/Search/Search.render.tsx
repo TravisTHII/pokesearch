@@ -1,60 +1,24 @@
-import React, { useContext, useRef, useState } from 'react'
 import { FiX, FiSearch } from 'react-icons/fi'
 
-import { Context } from '../context/State'
+import { useGlobalContext } from '../../context/GlobalState'
 
-import { Spinner } from './includes/Spinner'
+import { Spinner } from '../includes/Spinner'
 
-import { invalidValue } from '../utils/functions'
+interface Props {
+  value: string
+  active: boolean
+  startSearch: (e: React.ChangeEvent<HTMLInputElement>) => void
+  clearSearch: () => void
+}
 
-export function Search() {
+export function Render({
+  value,
+  active,
+  startSearch,
+  clearSearch
+}: Props) {
 
-  const { loading, getPokemon, isLoading } = useContext(Context)
-
-  const [value, setValue] = useState('')
-  const [active, setActive] = useState(false)
-
-  const timeOutRef = useRef<number>(null!)
-
-  const startSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
-
-    const value = e.target.value.trim()
-
-    setValue(value)
-
-    clearTimeout(timeOutRef.current)
-
-    if (!invalidValue(value, 50)) {
-
-      if (isLoading)
-        isLoading(true)
-
-      setActive(true)
-
-      const t = window.setTimeout(() => {
-
-        if (getPokemon)
-          getPokemon(value)
-
-      }, 500)
-
-      timeOutRef.current = t
-
-    } else {
-
-      setActive(false)
-
-      if (isLoading)
-        isLoading(false)
-
-    }
-
-  }
-
-  const clearSearch = () => {
-    setValue('')
-    setActive(false)
-  }
+  const { loading } = useGlobalContext()
 
   const SearchButton =
     <button className="search_button flex_ui">
@@ -80,7 +44,7 @@ export function Search() {
         <input
           type="text"
           className="search_input"
-          placeholder="Search for pokémon"
+          placeholder="Search for pokémon by Id or Name"
           spellCheck="false"
           maxLength={50}
           value={value}

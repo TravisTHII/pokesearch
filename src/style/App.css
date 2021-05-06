@@ -1,6 +1,8 @@
 
 :root {
   --gray: #616161;
+  --gray-light: hsl(0deg 0% 90%);
+  --yellow: #ffcb05;
 }
 
 body {
@@ -15,6 +17,11 @@ h1, h2, h3, p {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 button {
   background: none;
   border: none;
@@ -25,7 +32,7 @@ button {
 
 img {
   width: inherit;
-  height: inherit;
+  height: 100%;
 }
 
 /*
@@ -54,7 +61,7 @@ Header
   height: 50px;
 }
 .icon:hover {
-  background-color: hsl(0deg 0% 90%)
+  background-color: var(--gray-light);
 }
 
 /*
@@ -131,8 +138,33 @@ Pokemon
 }
 
 .poke_image {
-  width: 300px;
+  width: 475px;
+  margin: 0 auto;
+}
+
+/*
+===============
+Common
+===============
+*/
+
+.not_found {
   height: 300px;
+  color: var(--gray);
+}
+.not_found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100px;
+  justify-content: space-between;
+}
+.not_found-container .go_home {
+  height: 50px;
+  width: 90px;
+}
+.go_home:hover {
+  background-color: var(--gray-light);
 }
 
 /*
@@ -145,8 +177,4 @@ Common
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.visible {
-  display: block;
 }

@@ -1,16 +1,14 @@
-import React, { useContext } from 'react'
-
-import { Context } from '../context/State'
+import { useGlobalContext } from '../context/GlobalState'
 
 export function Pokemon() {
 
-  const { fetched, pokemon } = useContext(Context)
+  const { fetched, pokemon } = useGlobalContext()
 
   return (
     <>
       {pokemon && fetched &&
         <div className="pokemon">
-          <div className="poek_name">
+          <div className="poke_name">
             <span>
               <h1>{pokemon.name}</h1>
             </span>

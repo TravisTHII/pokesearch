@@ -1,4 +1,3 @@
-import React from 'react'
 import { FiCode, FiGithub } from 'react-icons/fi'
 
 export function Header() {

@@ -1,15 +1,10 @@
-import React from 'react'
-
-import { Provider } from '../context/State'
+import { GlobalProvider } from '../context/GlobalState'
 import { Pokemon } from './Pokemon'
 
 import { Search } from './Search'
 
-export function Home() {
-  return (
-    <Provider>
-      <Search />
-      <Pokemon />
-    </Provider>
-  )
-}
+export const Home = () =>
+  <GlobalProvider>
+    <Search />
+    <Pokemon />
+  </GlobalProvider>
