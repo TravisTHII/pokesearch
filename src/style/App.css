@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 :root {
   --gray: #616161;
@@ -8,7 +9,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', Tahoma, sans-serif;
   font-size: 16px;
 }
 
@@ -83,6 +84,9 @@ Search
   flex-direction: column;
   margin-bottom: 30px;
 }
+.search_logo .logo {
+  width: 300px;
+}
 .search_logo .tag_line {
   line-height: 30px;
   color: var(--gray);
@@ -132,19 +136,48 @@ Pokemon
 */
 
 .pokemon {
-  height: 500px;
   width: 700px;
   margin: 0 auto;
+  padding: 25px;
+  box-sizing: border-box;
+}
+.pokemon .poke_name {
+  position: relative;
+}
+.pokemon .poke_name h1 {
+  color: var(--gray);
+  line-height: 80px;
+  font-size: 4rem;
+  text-transform: capitalize;
+}
+.name_en, .name_jp {
+  position: absolute;
+}
+.pokemon .poke_name .name_en {
+  color: var(--gray-light);
+  font-size: 9rem;
+  top: -40px;
+  left: 50px;
+  z-index: -1;
+}
+.pokemon .poke_name .name_jp {
+  font-size: 3rem;
+  top: 55px;
+  left: 150px;
+  z-index: 1;
+  text-shadow: 0 0 5px var(--gray);
 }
 
 .poke_image {
   width: 475px;
   margin: 0 auto;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
 /*
 ===============
-Common
+Not Found
 ===============
 */
 

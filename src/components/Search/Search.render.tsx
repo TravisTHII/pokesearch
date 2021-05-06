@@ -6,14 +6,12 @@ import { Spinner } from '../includes/Spinner'
 
 interface Props {
   value: string
-  active: boolean
   startSearch: (e: React.ChangeEvent<HTMLInputElement>) => void
   clearSearch: () => void
 }
 
 export function Render({
   value,
-  active,
   startSearch,
   clearSearch
 }: Props) {
@@ -50,7 +48,7 @@ export function Render({
           value={value}
           onChange={startSearch}
         />
-        {active &&
+        {value &&
           <button
             className="search_button flex_ui"
             onClick={clearSearch}

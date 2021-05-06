@@ -11,13 +11,12 @@ export function Container() {
   const { getPokemon, isLoading } = useGlobalContext()
 
   const [value, setValue] = useState('')
-  const [active, setActive] = useState(false)
 
   const timeOutRef = useRef<number>(null!)
 
   const startSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
-    const value = e.target.value.trim()
+    const value = e.target.value
 
     setValue(value)
 
@@ -27,11 +26,9 @@ export function Container() {
 
       isLoading(true)
 
-      setActive(true)
-
       const t = window.setTimeout(() => {
 
-        getPokemon(value)
+        getPokemon(value.trim().toLowerCase())
 
       }, 500)
 
@@ -39,23 +36,17 @@ export function Container() {
 
     } else {
 
-      setActive(false)
-
       isLoading(false)
 
     }
 
   }
 
-  const clearSearch = () => {
-    setValue('')
-    setActive(false)
-  }
+  const clearSearch = () => setValue('')
 
   return (
     <Render
       value={value}
-      active={active}
       startSearch={startSearch}
       clearSearch={clearSearch}
     />

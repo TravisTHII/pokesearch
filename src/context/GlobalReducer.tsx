@@ -1,3 +1,4 @@
+import { Pokemon } from './GlobalState'
 
 export enum StateType {
   GET_POKEMON = 'GET_POKEMON',
@@ -14,20 +15,18 @@ type Action =
     payload: { loading: boolean }
   }
 
-export type State = {
-  pokemon: any
+export type IniitalState = {
+  pokemon: Pokemon | null
   loading: boolean
-  fetched: boolean
 }
 
-export const GlobalReducer = (state: State, action: Action): State => {
+export const GlobalReducer = (state: IniitalState, action: Action): IniitalState => {
   const { type, payload } = action
 
   if (type === StateType.GET_POKEMON) {
     return {
       ...state,
       loading: false,
-      fetched: true,
       ...payload
     }
   }

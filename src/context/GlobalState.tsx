@@ -2,23 +2,39 @@ import { createContext, FC, useContext, useReducer } from 'react'
 // @ts-ignore
 import Pokedex from 'pokedex-promise-v2'
 
-import { GlobalReducer as reducer, State, StateType } from './GlobalReducer'
+import { GlobalReducer as reducer, IniitalState, StateType } from './GlobalReducer'
 
-export type initialStateType = {
-  pokemon: any
+export type Pokemon = {
+  id: number,
+  name: {
+    en: string
+    jp: string
+  },
+  color: string
+  sprite: string
+}
+
+type ContextType = {
+  pokemon: Pokemon | null
   loading: boolean
-  fetched: boolean
   getPokemon: (name: string) => void
   isLoading: (loading: boolean) => void
 }
 
-const initialState: State = {
-  pokemon: {},
-  loading: false,
-  fetched: false
+type Names = {
+  language: {
+    name: string
+    url: string
+  },
+  name: string
 }
 
-const GlobalContext = createContext<initialStateType>(initialState as initialStateType)
+const initialState: IniitalState = {
+  pokemon: null,
+  loading: false,
+}
+
+const GlobalContext = createContext<ContextType>(initialState as ContextType)
 
 export const useGlobalContext = () => useContext(GlobalContext)
 
@@ -33,14 +49,26 @@ export const GlobalProvider: FC = ({ children }) => {
 
       const pokemon = await P.getPokemonByName(name)
 
-      // const species = await P.getPokemonSpeciesByName(pokemon.name)
+      const species = await P.getPokemonSpeciesByName(name)
 
-      // console.log(species);
+      const Jp: Names[] = species.names
+
+      const jp = Jp.filter(({ language: { name } }) => name === 'ja')
+
+      const pokemonObject = {
+        id: pokemon.id,
+        name: {
+          en: pokemon.name,
+          jp: jp.length ? jp[0].name : ''
+        },
+        color: species.color.name,
+        sprite: pokemon.sprites.other['official-artwork'].front_default
+      }
 
       dispatch({
         type: StateType.GET_POKEMON,
         payload: {
-          pokemon
+          pokemon: pokemonObject
         }
       })
 
