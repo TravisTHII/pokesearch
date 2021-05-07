@@ -20,15 +20,17 @@ export function Pokemon() {
         <div className="poke_name">
           <h1>{pokemon.name.en}</h1>
           <p className="name_en">{pokemon.id}</p>
-          <p
-            className="name_jp"
-            style={{ color: pokemon.color }}
-          >
+          <p className={`name_jp ${pokemon.color}`}>
             {pokemon.name.jp}
           </p>
         </div>
-        <div className="poke_image">
-          <img src={pokemon.sprite} alt={`${pokemon.name.en}_sprite`} />
+        <div className="pokemon_details">
+          <div className="poke_image">
+            <img src={pokemon.sprite} alt={`${pokemon.name.en}_sprite`} />
+          </div>
+          <div className="pokemon_stats">
+            {pokemon.genus}
+          </div>
         </div>
       </div>
   }

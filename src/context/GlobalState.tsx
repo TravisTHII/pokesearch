@@ -11,7 +11,8 @@ export type Pokemon = {
     jp: string
   },
   color: string
-  sprite: string
+  sprite: string,
+  genus: string
 }
 
 type ContextType = {
@@ -27,6 +28,14 @@ type Names = {
     url: string
   },
   name: string
+}
+
+type Genus = {
+  genus: string
+  language: {
+    name: string
+    url: string
+  }
 }
 
 const initialState: IniitalState = {
@@ -55,14 +64,35 @@ export const GlobalProvider: FC = ({ children }) => {
 
       const jp = Jp.filter(({ language: { name } }) => name === 'ja')
 
+      let color
+
+      switch (species.color.name) {
+        case 'black': color = 'pokemon_color_black'; break;
+        case 'blue': color = 'pokemon_color_blue'; break;
+        case 'brown': color = 'pokemon_color_brown'; break;
+        case 'gray': color = 'pokemon_color_gray'; break;
+        case 'green': color = 'pokemon_color_green'; break;
+        case 'pink': color = 'pokemon_color_pink'; break;
+        case 'purple': color = 'pokemon_color_purple'; break;
+        case 'red': color = 'pokemon_color_red'; break;
+        case 'white': color = 'pokemon_color_white'; break;
+        case 'yellow': color = 'pokemon_color_yellow'; break;
+        default: color = 'pokemon_color_white'; break;
+      }
+
+      const g: Genus[] = species.genera
+
+      const genus = g.filter(({ language: { name } }) => name === 'en')
+
       const pokemonObject = {
         id: pokemon.id,
         name: {
           en: pokemon.name,
           jp: jp.length ? jp[0].name : ''
         },
-        color: species.color.name,
-        sprite: pokemon.sprites.other['official-artwork'].front_default
+        color,
+        sprite: pokemon.sprites.other['official-artwork'].front_default,
+        genus: genus[0].genus
       }
 
       dispatch({

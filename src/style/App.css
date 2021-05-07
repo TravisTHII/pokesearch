@@ -4,6 +4,17 @@
   --gray: #616161;
   --gray-light: hsl(0deg 0% 90%);
   --yellow: #ffcb05;
+  --pokemon-black: #333935;
+  --pokemon-blue: #4283b8;
+  --pokemon-brown: #bc9982;
+  --pokemon-gray: #919099;
+  --pokemon-green: #5f8f67;
+  --pokemon-pink: #f38bdc;
+  --pokemon-purple: #8872aa;
+  --pokemon-red: #fb6e6e;
+  --pokemon-white: white;
+  --pokemon-yellow: #f4d77c;
+
 }
 
 body {
@@ -136,7 +147,9 @@ Pokemon
 */
 
 .pokemon {
-  width: 700px;
+  display: flex;
+  flex-direction: column;
+  width: 900px;
   margin: 0 auto;
   padding: 25px;
   box-sizing: border-box;
@@ -168,11 +181,20 @@ Pokemon
   text-shadow: 0 0 5px var(--gray);
 }
 
-.poke_image {
-  width: 475px;
-  margin: 0 auto;
+.pokemon .pokemon_details {
   padding: 15px;
   box-sizing: border-box;
+  display: flex;
+}
+.pokemon .pokemon_details .poke_image {
+  width: 475px;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.pokemon .pokemon_details .pokemon_stats {
+  flex: 0 250px;
 }
 
 /*
@@ -210,4 +232,35 @@ Common
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.pokemon_color_black {
+  color: var(--pokemon-black);
+}
+.pokemon_color_blue {
+  color: var(--pokemon-blue);
+}
+.pokemon_color_brown {
+  color: var(--pokemon-brown);
+}
+.pokemon_color_gray {
+  color: var(--pokemon-gray);
+}
+.pokemon_color_green {
+  color: var(--pokemon-green);
+}
+.pokemon_color_pink {
+  color: var(--pokemon-pink);
+}
+.pokemon_color_purple {
+  color: var(--pokemon-purple);
+}
+.pokemon_color_red {
+  color: var(--pokemon-red);
+}
+.pokemon_color_white {
+  color: var(--pokemon-white);
+}
+.pokemon_color_yellow {
+  color: var(--pokemon-yellow);
 }
