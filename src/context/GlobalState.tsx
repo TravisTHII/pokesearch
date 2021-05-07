@@ -4,6 +4,23 @@ import Pokedex from 'pokedex-promise-v2'
 
 import { GlobalReducer as reducer, IniitalState, StateType } from './GlobalReducer'
 
+type PokemonAbilities = {
+  ability: NameUrl
+  is_hidden: boolean
+  slot: number
+}
+
+type PokemonTypes = {
+  slot: number
+  type: NameUrl
+}
+
+type PokemonStat = {
+  base_stat: number
+  effort: number
+  stat: NameUrl
+}
+
 export type Pokemon = {
   id: number,
   name: {
@@ -12,7 +29,14 @@ export type Pokemon = {
   },
   color: string
   sprite: string,
-  genus: string
+  genus: string,
+  height: number
+  weight: number
+  flavorText: string
+  abilities: PokemonAbilities[]
+  types: PokemonTypes[]
+  stats: PokemonStat[]
+  family: Family[]
 }
 
 type ContextType = {
@@ -22,20 +46,30 @@ type ContextType = {
   isLoading: (loading: boolean) => void
 }
 
-type Names = {
-  language: {
-    name: string
-    url: string
-  },
+type NameUrl = {
   name: string
+  url: string
+}
+
+type Names = {
+  name: string
+  language: NameUrl
 }
 
 type Genus = {
   genus: string
-  language: {
-    name: string
-    url: string
-  }
+  language: NameUrl
+}
+
+type FlavorText = {
+  flavor_text: string
+  language: NameUrl
+}
+
+type Family = {
+  id: string
+  name: string
+  sprite: string
 }
 
 const initialState: IniitalState = {
@@ -59,6 +93,33 @@ export const GlobalProvider: FC = ({ children }) => {
       const pokemon = await P.getPokemonByName(name)
 
       const species = await P.getPokemonSpeciesByName(name)
+
+      const evolution = await P.getEvolutionChainById(species.evolution_chain.url.match(/(\d+)(?!.*\d+)/)[0])
+
+      const family: Family[] = []
+
+      family.push({
+        id: evolution.chain.species.url.match(/(\d+)(?!.*\d+)/)[0],
+        name: evolution.chain.species.name,
+        sprite: ''
+      })
+
+      const sweet = (x: any): any => {
+        if (x.length !== 0) {
+          family.push({
+            id: x[0].species.url.match(/(\d+)(?!.*\d+)/)[0],
+            name: x[0].species.name,
+            sprite: ''
+          })
+          return sweet(x[0]['evolves_to'])
+        }
+      }
+
+      sweet(evolution['chain']['evolves_to'])
+
+      for (const i of family) {
+        i.sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i.id}.png`
+      }
 
       const Jp: Names[] = species.names
 
@@ -84,7 +145,15 @@ export const GlobalProvider: FC = ({ children }) => {
 
       const genus = g.filter(({ language: { name } }) => name === 'en')
 
-      const pokemonObject = {
+      const f: FlavorText[] = species.flavor_text_entries
+
+      const ft = f.filter(({ language: { name } }) => name === 'en')
+
+      let flavorText = ''
+
+      if (ft.length) flavorText = ft[0].flavor_text.replace(/\f/, ' ')
+
+      const pokemonObject: Pokemon = {
         id: pokemon.id,
         name: {
           en: pokemon.name,
@@ -92,7 +161,14 @@ export const GlobalProvider: FC = ({ children }) => {
         },
         color,
         sprite: pokemon.sprites.other['official-artwork'].front_default,
-        genus: genus[0].genus
+        genus: genus[0].genus,
+        abilities: pokemon.abilities,
+        flavorText,
+        height: pokemon.height / 10,
+        weight: pokemon.weight / 10,
+        types: pokemon.types,
+        stats: pokemon.stats,
+        family
       }
 
       dispatch({

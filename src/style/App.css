@@ -12,7 +12,7 @@
   --pokemon-pink: #f38bdc;
   --pokemon-purple: #8872aa;
   --pokemon-red: #fb6e6e;
-  --pokemon-white: white;
+  --pokemon-white: #dadce0;
   --pokemon-yellow: #f4d77c;
 
 }
@@ -32,6 +32,11 @@ h1, h2, h3, p {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 button {
@@ -147,54 +152,122 @@ Pokemon
 */
 
 .pokemon {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-row-gap: 30px;
   width: 900px;
   margin: 0 auto;
-  padding: 25px;
-  box-sizing: border-box;
 }
-.pokemon .poke_name {
+.pokemon_name {
   position: relative;
 }
-.pokemon .poke_name h1 {
-  color: var(--gray);
+.pokemon_name .name_en {
   line-height: 80px;
   font-size: 4rem;
   text-transform: capitalize;
+  text-shadow: 0 0 5px var(--gray);
 }
-.name_en, .name_jp {
+.pokemon_id, .name_jp {
   position: absolute;
 }
-.pokemon .poke_name .name_en {
+.pokemon_name .pokemon_id {
   color: var(--gray-light);
   font-size: 9rem;
-  top: -40px;
+  top: -30px;
   left: 50px;
   z-index: -1;
 }
-.pokemon .poke_name .name_jp {
+.pokemon_name .name_jp {
   font-size: 3rem;
   top: 55px;
   left: 150px;
   z-index: 1;
   text-shadow: 0 0 5px var(--gray);
 }
-
-.pokemon .pokemon_details {
-  padding: 15px;
-  box-sizing: border-box;
+.pokemon_details {
   display: flex;
 }
-.pokemon .pokemon_details .poke_image {
+.pokemon_data {
+  flex: 0 120px;
+  text-align: center;
+}
+.pokemon_data > div:not(:last-child) {
+  margin-bottom: 10px;
+ }
+.pokemon_data h3 {
+  color: var(--gray);
+  font-size: 2rem;
+}
+.abilities ul {
+  list-style: none;
+}
+.family h3 {
+  margin-bottom: 5px;
+}
+.pokemon_ability {
+  padding: 5px;
+  box-sizing: border-box;
+  text-transform: capitalize;
+}
+.evolution_chain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+}
+.evolution {
+  width: 100px;
+  height: 100px;
+}
+.pokemon_image {
   width: 475px;
+  height: 475px;
   margin: 0 auto;
   flex: 1;
   display: flex;
   justify-content: center;
 }
-.pokemon .pokemon_details .pokemon_stats {
+.pokemon_stats > div:not(:last-child) {
+  margin-bottom: 10px;
+}
+.pokemon_stats {
   flex: 0 250px;
+}
+.pokemon_stats h3 {
+  color: var(--gray);
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 30px;
+}
+.pokemon_types {
+  display: flex;
+  justify-content: center;
+}
+.pokemon_type {
+  padding: 5px;
+  height: 30px;
+}
+.stats_list {
+  list-style: none;
+  font-size: 1.3rem;
+}
+.stats_list li {
+  color: var(--gray);
+  text-transform: capitalize;
+}
+.stats_list li:not(:last-child) {
+  margin-bottom: 5px;
+}
+.stats_list .base_stat {
+  color: var(--gray-light);
+}
+.measurements p {
+  color: var(--gray);
+}
+.measurements p:not(:last-child) {
+  margin-bottom: 5px;
+}
+.flavor_text {
+  font-size: 1rem;
 }
 
 /*

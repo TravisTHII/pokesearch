@@ -2,7 +2,7 @@ import { FiX, FiSearch } from 'react-icons/fi'
 
 import { useGlobalContext } from '../../context/GlobalState'
 
-import { Spinner } from '../includes/Spinner'
+import { Spinner } from '../Includes/Spinner'
 
 interface Props {
   value: string
