@@ -9,7 +9,7 @@ export function Render({ loading, pokemon }: Props) {
     content =
       <div className="pokeball_loading">
         <span className="pokeball_spinning">
-          <img src="./images/pokeball.svg" alt="" />
+          <img src="/images/pokeball.svg" alt="" />
         </span>
       </div>
 

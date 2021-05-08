@@ -1,12 +1,16 @@
-import { GlobalProvider } from '../context/GlobalState'
+import { GlobalProvider } from '../context/Global'
 import { Pokemon } from './Pokemon'
 
 import { Search } from './Search'
 
-import { Location } from './Search/types'
+interface Props {
+  location: {
+    search: string
+  }
+}
 
-export const Home = ({ location }: Location) =>
-  <GlobalProvider>
-    <Search location={location} />
-    <Pokemon location={location} />
+export const Home = ({ location: { search } }: Props) =>
+  <GlobalProvider search={search}>
+    <Search />
+    <Pokemon />
   </GlobalProvider>

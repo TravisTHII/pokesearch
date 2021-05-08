@@ -5,9 +5,3 @@ export interface Props {
   submitSearch: () => void
   handleSubmitSearch: (e: React.KeyboardEvent<HTMLInputElement>) => void
 }
-
-export interface Location {
-  location: {
-    search: string
-  }
-}

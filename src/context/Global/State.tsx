@@ -2,87 +2,30 @@ import { createContext, FC, useContext, useReducer } from 'react'
 // @ts-ignore
 import Pokedex from 'pokedex-promise-v2'
 
-import { GlobalReducer as reducer, IniitalState, StateType } from './GlobalReducer'
+import { Reducer as reducer } from './Reducer'
 
-type PokemonAbilities = {
-  ability: NameUrl
-  is_hidden: boolean
-  slot: number
-}
-
-type PokemonTypes = {
-  slot: number
-  type: NameUrl
-}
-
-type PokemonStat = {
-  base_stat: number
-  effort: number
-  stat: NameUrl
-}
-
-export type Pokemon = {
-  id: number,
-  name: {
-    en: string
-    jp: string
-  },
-  color: string
-  sprite: string,
-  genus: string,
-  height: number
-  weight: number
-  flavorText: string
-  abilities: PokemonAbilities[]
-  types: PokemonTypes[]
-  stats: PokemonStat[]
-  family: Family[]
-  generation: NameUrl
-}
-
-type ContextType = {
-  pokemon: Pokemon | null
-  loading: boolean
-  getPokemon: (name: string) => void
-  isLoading: (loading: boolean) => void
-}
-
-type NameUrl = {
-  name: string
-  url: string
-}
-
-type Names = {
-  name: string
-  language: NameUrl
-}
-
-type Genus = {
-  genus: string
-  language: NameUrl
-}
-
-type FlavorText = {
-  flavor_text: string
-  language: NameUrl
-}
-
-type Family = {
-  id: string
-  name: string
-  sprite: string
-}
+import {
+  ContextType,
+  ProviderProps,
+  Family,
+  Names,
+  Genus,
+  FlavorText,
+  Pokemon,
+  IniitalState,
+  StateType
+} from './types'
 
 const initialState: IniitalState = {
   pokemon: null,
   loading: false,
 }
 
-const GlobalContext = createContext<ContextType>(initialState as ContextType)
+const Context = createContext<ContextType>(initialState as ContextType)
 
-export const useGlobalContext = () => useContext(GlobalContext)
+export const useGlobalContext = () => useContext(Context)
 
-export const GlobalProvider: FC = ({ children }) => {
+export const Provider: FC<ProviderProps> = ({ children, search }: ProviderProps) => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -201,12 +144,13 @@ export const GlobalProvider: FC = ({ children }) => {
   }
 
   return (
-    <GlobalContext.Provider value={{
+    <Context.Provider value={{
       ...state,
+      search,
       getPokemon,
       isLoading
     }}>
       {children}
-    </GlobalContext.Provider>
+    </Context.Provider>
   )
 }
