@@ -22,12 +22,12 @@ export function Render({ loading, pokemon }: Props) {
           <h1 className={`name_en ${pokemon.color}`}>
             {pokemon.name.en}
           </h1>
-          <p className="pokemon_id">
-            {pokemon.id}
-          </p>
-          <p className={`name_jp ${pokemon.color}`}>
+          <h2 className={`name_jp ${pokemon.color}`}>
             {pokemon.name.jp}
-          </p>
+          </h2>
+          <h3 className="pokemon_id">
+            {pokemon.id}
+          </h3>
         </div>
 
         <div className="pokemon_details">
@@ -62,15 +62,12 @@ export function Render({ loading, pokemon }: Props) {
           <div className="pokemon_stats">
 
             <div className={`${pokemon.color}`}>
-              <h3>{pokemon.genus}</h3>
+              <h2>{pokemon.genus}</h2>
             </div>
 
             <div className="pokemon_types">
               {pokemon.types.map((type, i) => (
-                <span
-                  key={i}
-                  className="pokemon_type"
-                >
+                <span key={i}>
                   <img src={`/images/types/${type.type.name}.svg`} alt={`${pokemon.name.en} - ${type.type.name} type`} />
                 </span>
               ))}
@@ -79,9 +76,7 @@ export function Render({ loading, pokemon }: Props) {
             <div className="stats">
               <ul className="stats_list">
                 {pokemon.stats.map((stat, i) => (
-                  <li
-                    key={i}
-                  >
+                  <li key={i}>
                     {`${stat.stat.name}: `}
                     <span className={`${pokemon.color}`}>
                       {stat.base_stat}
@@ -97,7 +92,7 @@ export function Render({ loading, pokemon }: Props) {
             </div>
 
             <div className="generation">
-              <p>Generation: <span className={`${pokemon.color}`}>{pokemon.generation}</span></p>
+              Generation: <span className={`${pokemon.color}`}>{pokemon.generation}</span>
             </div>
 
             <div className="flavor_text">

@@ -166,15 +166,9 @@ Pokemon
   text-transform: capitalize;
   text-shadow: 0 0 5px var(--gray);
 }
-.pokemon_id, .name_jp {
+.name_jp, .pokemon_id{
   position: absolute;
-}
-.pokemon_name .pokemon_id {
-  color: var(--gray-light);
-  font-size: 9rem;
-  top: -30px;
-  left: 50px;
-  z-index: -1;
+  font-weight: normal;
 }
 .pokemon_name .name_jp {
   font-size: 3rem;
@@ -182,6 +176,13 @@ Pokemon
   left: 150px;
   z-index: 1;
   text-shadow: 0 0 5px var(--gray);
+}
+.pokemon_name .pokemon_id {
+  color: var(--gray-light);
+  font-size: 9rem;
+  top: -30px;
+  left: 50px;
+  z-index: -1;
 }
 .pokemon_details {
   display: flex;
@@ -234,7 +235,7 @@ Pokemon
 .pokemon_stats > div:not(:last-child) {
   margin-bottom: 10px;
 }
-.pokemon_stats h3 {
+.pokemon_stats h2 {
   text-align: center;
   font-size: 1.4rem;
   line-height: 30px;
@@ -243,7 +244,7 @@ Pokemon
   display: flex;
   justify-content: center;
 }
-.pokemon_type {
+.pokemon_types span {
   padding: 5px;
   height: 30px;
 }

@@ -6,26 +6,24 @@ import { Reducer as reducer } from './Reducer'
 
 import {
   ContextType,
-  ProviderProps,
-  Family,
-  Names,
-  Genus,
-  FlavorText,
-  Pokemon,
+  Props,
   IniitalState,
-  StateType
+  StateType,
+  Pokemon
 } from './types'
+
+import { colorClass, filterLanguage, getEvolutionChain } from '../../utils/pokemon'
 
 const initialState: IniitalState = {
   pokemon: null,
-  loading: false,
+  loading: false
 }
 
 const Context = createContext<ContextType>(initialState as ContextType)
 
 export const useGlobalContext = () => useContext(Context)
 
-export const Provider: FC<ProviderProps> = ({ children, search }: ProviderProps) => {
+export const Provider: FC<Props> = ({ children, search }: Props) => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -40,88 +38,31 @@ export const Provider: FC<ProviderProps> = ({ children, search }: ProviderProps)
 
       const species = await P.getPokemonSpeciesByName(name)
 
-      const evolution = await P.getEvolutionChainById(species.evolution_chain.url.match(/(\d+)(?!.*\d+)/)[0])
+      const evolution = await P.resource([species.evolution_chain.url])
 
-      const family: Family[] = []
-
-      family.push({
-        id: evolution.chain.species.url.match(/(\d+)(?!.*\d+)/)[0],
-        name: evolution.chain.species.name,
-        sprite: ''
-      })
-
-      const sweet = (x: any): any => {
-        if (x.length !== 0) {
-          family.push({
-            id: x[0].species.url.match(/(\d+)(?!.*\d+)/)[0],
-            name: x[0].species.name,
-            sprite: ''
-          })
-          return sweet(x[0]['evolves_to'])
-        }
-      }
-
-      sweet(evolution['chain']['evolves_to'])
-
-      for (const i of family) {
-        i.sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i.id}.png`
-      }
-
-      const Jp: Names[] = species.names
-
-      const jp = Jp.filter(({ language: { name } }) => name === 'ja')
-
-      let color
-
-      switch (species.color.name) {
-        case 'black': color = 'pokemon_color_black'; break;
-        case 'blue': color = 'pokemon_color_blue'; break;
-        case 'brown': color = 'pokemon_color_brown'; break;
-        case 'gray': color = 'pokemon_color_gray'; break;
-        case 'green': color = 'pokemon_color_green'; break;
-        case 'pink': color = 'pokemon_color_pink'; break;
-        case 'purple': color = 'pokemon_color_purple'; break;
-        case 'red': color = 'pokemon_color_red'; break;
-        case 'white': color = 'pokemon_color_white'; break;
-        case 'yellow': color = 'pokemon_color_yellow'; break;
-        default: color = 'pokemon_color_white'; break;
-      }
-
-      const g: Genus[] = species.genera
-
-      const genus = g.filter(({ language: { name } }) => name === 'en')
-
-      const f: FlavorText[] = species.flavor_text_entries
-
-      const ft = f.filter(({ language: { name } }) => name === 'en')
-
-      let flavorText = ''
-
-      if (ft.length) flavorText = ft[0].flavor_text.replace(/\f/, ' ')
-
-      const pokemonObject: Pokemon = {
+      const pokemonData: Pokemon = {
         id: pokemon.id,
         name: {
           en: pokemon.name,
-          jp: jp.length ? jp[0].name : ''
+          jp: filterLanguage(species.names, 'ja')[0].name
         },
-        color,
+        color: colorClass(species.color.name),
         sprite: pokemon.sprites.other['official-artwork'].front_default,
-        genus: genus[0].genus,
+        genus: filterLanguage(species.genera, 'en')[0].genus,
         abilities: pokemon.abilities,
-        flavorText,
+        flavorText: filterLanguage(species.flavor_text_entries, 'en')[0].flavor_text,
         height: pokemon.height / 10,
         weight: pokemon.weight / 10,
         types: pokemon.types,
         stats: pokemon.stats,
-        family,
+        family: getEvolutionChain(evolution),
         generation: species.generation.name.split('-')[1]
       }
 
       dispatch({
         type: StateType.GET_POKEMON,
         payload: {
-          pokemon: pokemonObject
+          pokemon: pokemonData
         }
       })
 

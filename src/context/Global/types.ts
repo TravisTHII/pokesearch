@@ -1,38 +1,7 @@
 
-export type PokemonAbilities = {
-  ability: NameUrl
-  is_hidden: boolean
-  slot: number
-}
-
-export type PokemonTypes = {
-  slot: number
-  type: NameUrl
-}
-
-export type PokemonStat = {
-  base_stat: number
-  effort: number
-  stat: NameUrl
-}
-
-export type Pokemon = {
-  id: number,
-  name: {
-    en: string
-    jp: string
-  },
-  color: string
-  sprite: string,
-  genus: string,
-  height: number
-  weight: number
-  flavorText: string
-  abilities: PokemonAbilities[]
-  types: PokemonTypes[]
-  stats: PokemonStat[]
-  family: Family[]
-  generation: NameUrl
+export interface Props {
+  children: React.ReactNode,
+  search: string
 }
 
 export type ContextType = {
@@ -41,37 +10,6 @@ export type ContextType = {
   search: string
   getPokemon: (name: string) => void
   isLoading: (loading: boolean) => void
-}
-
-export type NameUrl = {
-  name: string
-  url: string
-}
-
-export type Names = {
-  name: string
-  language: NameUrl
-}
-
-export type Genus = {
-  genus: string
-  language: NameUrl
-}
-
-export type FlavorText = {
-  flavor_text: string
-  language: NameUrl
-}
-
-export type Family = {
-  id: string
-  name: string
-  sprite: string
-}
-
-export interface ProviderProps {
-  children: React.ReactNode,
-  search: string
 }
 
 export enum StateType {
@@ -92,4 +30,66 @@ export type Action =
 export type IniitalState = {
   pokemon: Pokemon | null
   loading: boolean
+}
+
+export type Pokemon = {
+  id: number,
+  name: {
+    en: string
+    jp: string
+  },
+  color: string
+  sprite: string,
+  genus: string,
+  height: number
+  weight: number
+  flavorText: string
+  abilities: Abilities[]
+  types: Types[]
+  stats: Stats[]
+  family: Family[]
+  generation: NameUrl
+}
+
+type Abilities = {
+  ability: NameUrl
+  is_hidden: boolean
+  slot: number
+}
+
+type Types = {
+  slot: number
+  type: NameUrl
+}
+
+type Stats = {
+  base_stat: number
+  effort: number
+  stat: NameUrl
+}
+
+type NameUrl = {
+  name: string
+  url: string
+}
+
+export type Names = {
+  name: string
+  language: NameUrl
+}
+
+export type Genus = {
+  genus: string
+  language: NameUrl
+}
+
+export type Family = {
+  id: string
+  name: string
+  sprite: string
+}
+
+export type FlavorText = {
+  flavor_text: string
+  language: NameUrl
 }
