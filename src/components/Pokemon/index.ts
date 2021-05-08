@@ -1,0 +1,1 @@
+export { Container as Pokemon } from './Pokemon.container'

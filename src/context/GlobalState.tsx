@@ -37,6 +37,7 @@ export type Pokemon = {
   types: PokemonTypes[]
   stats: PokemonStat[]
   family: Family[]
+  generation: NameUrl
 }
 
 type ContextType = {
@@ -87,6 +88,8 @@ export const GlobalProvider: FC = ({ children }) => {
 
   const getPokemon = async (name: string) => {
     try {
+
+      isLoading(true)
 
       const P = new Pokedex()
 
@@ -168,7 +171,8 @@ export const GlobalProvider: FC = ({ children }) => {
         weight: pokemon.weight / 10,
         types: pokemon.types,
         stats: pokemon.stats,
-        family
+        family,
+        generation: species.generation.name.split('-')[1]
       }
 
       dispatch({

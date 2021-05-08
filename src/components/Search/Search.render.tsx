@@ -1,25 +1,25 @@
+import { useRef } from 'react'
 import { FiX, FiSearch } from 'react-icons/fi'
-
-import { useGlobalContext } from '../../context/GlobalState'
 
 import { Spinner } from '../Includes/Spinner'
 
-interface Props {
-  value: string
-  startSearch: (e: React.ChangeEvent<HTMLInputElement>) => void
-  clearSearch: () => void
-}
+import { Props } from './types'
 
 export function Render({
+  loading,
   value,
-  startSearch,
-  clearSearch
+  setValue,
+  submitSearch,
+  handleSubmitSearch
 }: Props) {
 
-  const { loading } = useGlobalContext()
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const SearchButton =
-    <button className="search_button flex_ui">
+    <button
+      className="search_button flex_ui"
+      onClick={submitSearch}
+    >
       <FiSearch />
     </button>
 
@@ -40,18 +40,20 @@ export function Render({
       </div>
       <div className="search_bar">
         <input
+          ref={inputRef}
           type="text"
           className="search_input"
           placeholder="Search for pokémon by Id or Name"
           spellCheck="false"
           maxLength={50}
           value={value}
-          onChange={startSearch}
+          onChange={e => setValue(e.target.value)}
+          onKeyPress={handleSubmitSearch}
         />
         {value &&
           <button
             className="search_button flex_ui"
-            onClick={clearSearch}
+            onClick={() => { setValue(''); inputRef.current?.focus() }}
           >
             <FiX />
           </button>

@@ -1,16 +1,16 @@
-import { useGlobalContext } from '../context/GlobalState'
+import { Props } from './types'
 
-export function Pokemon() {
-
-  const { loading, pokemon } = useGlobalContext()
+export function Render({ loading, pokemon }: Props) {
 
   let content
 
   if (loading) {
 
     content =
-      <div>
-        <h1>Loading...</h1>
+      <div className="pokeball_loading">
+        <span className="pokeball_spinning">
+          <img src="./images/pokeball.svg" alt="" />
+        </span>
       </div>
 
   } else if (pokemon) {
@@ -37,10 +37,7 @@ export function Pokemon() {
               <h3>Abilities</h3>
               <ul>
                 {pokemon.abilities.map((ability, i) => (
-                  <li
-                    key={i}
-                    className={`pokemon_ability ${pokemon.color}`}
-                  >
+                  <li key={i} className={pokemon.color}>
                     {ability.ability.name}
                   </li>
                 ))}
@@ -48,12 +45,9 @@ export function Pokemon() {
             </div>
             <div className="family">
               <h3>Family</h3>
-              <ul className="evolution_chain">
+              <ul>
                 {pokemon.family.map((family, i) => (
-                  <li
-                    key={i}
-                    className="evolution"
-                  >
+                  <li key={i}>
                     <img src={family.sprite} alt={`${family.name}_sprite`} />
                   </li>
                 ))}
@@ -67,7 +61,7 @@ export function Pokemon() {
 
           <div className="pokemon_stats">
 
-            <div>
+            <div className={`${pokemon.color}`}>
               <h3>{pokemon.genus}</h3>
             </div>
 
@@ -98,8 +92,12 @@ export function Pokemon() {
             </div>
 
             <div className="measurements">
-              <p>Height: {pokemon.height} meters</p>
-              <p>Weight: {pokemon.weight} kilograms</p>
+              <p>{`Height: ${pokemon.height} meters`}</p>
+              <p>{`Weight: ${pokemon.weight} kilograms`}</p>
+            </div>
+
+            <div className="generation">
+              <p>Generation: <span className={`${pokemon.color}`}>{pokemon.generation}</span></p>
             </div>
 
             <div className="flavor_text">

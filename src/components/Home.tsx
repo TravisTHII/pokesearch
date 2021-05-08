@@ -3,8 +3,10 @@ import { Pokemon } from './Pokemon'
 
 import { Search } from './Search'
 
-export const Home = () =>
+import { Location } from './Search/types'
+
+export const Home = ({ location }: Location) =>
   <GlobalProvider>
-    <Search />
-    <Pokemon />
+    <Search location={location} />
+    <Pokemon location={location} />
   </GlobalProvider>

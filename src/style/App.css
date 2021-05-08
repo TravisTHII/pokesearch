@@ -6,13 +6,13 @@
   --yellow: #ffcb05;
   --pokemon-black: #333935;
   --pokemon-blue: #4283b8;
-  --pokemon-brown: #bc9982;
+  --pokemon-brown: #96602f;
   --pokemon-gray: #919099;
-  --pokemon-green: #5f8f67;
+  --pokemon-green: #69c07c;
   --pokemon-pink: #f38bdc;
   --pokemon-purple: #8872aa;
-  --pokemon-red: #fb6e6e;
-  --pokemon-white: #dadce0;
+  --pokemon-red: #d43323;
+  --pokemon-white: #ffffff;
   --pokemon-yellow: #f4d77c;
 
 }
@@ -200,21 +200,23 @@ Pokemon
 .abilities ul {
   list-style: none;
 }
+.abilities ul li {
+  line-height: 25px;
+  text-transform: capitalize;
+}
+.abilities ul li:not(:last-child) {
+  margin-bottom: 5px;
+}
 .family h3 {
   margin-bottom: 5px;
 }
-.pokemon_ability {
-  padding: 5px;
-  box-sizing: border-box;
-  text-transform: capitalize;
-}
-.evolution_chain {
+.family ul {
   display: flex;
   flex-direction: column;
   align-items: center;
   list-style: none;
 }
-.evolution {
+.family ul li {
   width: 100px;
   height: 100px;
 }
@@ -226,14 +228,13 @@ Pokemon
   display: flex;
   justify-content: center;
 }
-.pokemon_stats > div:not(:last-child) {
-  margin-bottom: 10px;
-}
 .pokemon_stats {
   flex: 0 250px;
 }
+.pokemon_stats > div:not(:last-child) {
+  margin-bottom: 10px;
+}
 .pokemon_stats h3 {
-  color: var(--gray);
   text-align: center;
   font-size: 1.4rem;
   line-height: 30px;
@@ -266,8 +267,34 @@ Pokemon
 .measurements p:not(:last-child) {
   margin-bottom: 5px;
 }
+.generation {
+  color: var(--gray);
+}
+.generation span {
+  font-weight: bold;
+  text-transform: uppercase;
+}
 .flavor_text {
   font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.02rem;
+}
+
+.pokeball_loading {
+  width: 400px;
+  margin: 0 auto;
+}
+.pokeball_loading .pokeball_spinning {
+  display: block;
+  width: inherit;
+  animation: catching 1.5s infinite linear;
+}
+
+@keyframes catching {
+  0% { transform: rotate(0deg); }
+	25% { transform: rotate(25deg); }
+	75% { transform: rotate(-25deg); }
+	100% { transform: rotate(0deg); }
 }
 
 /*
@@ -333,6 +360,7 @@ Common
 }
 .pokemon_color_white {
   color: var(--pokemon-white);
+  text-shadow: 0 0 3px var(--gray);
 }
 .pokemon_color_yellow {
   color: var(--pokemon-yellow);
