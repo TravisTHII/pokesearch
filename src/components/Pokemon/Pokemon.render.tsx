@@ -59,13 +59,17 @@ export function Render({ loading, pokemon }: Props) {
           </div>
 
           <div className="pokemon_image">
-            <img src={pokemon.sprite} alt={`${pokemon.name.en}_sprite`} />
+            <span>
+              <img src={pokemon.sprite} alt={`${pokemon.name.en}_sprite`} />
+            </span>
           </div>
 
           <div className="pokemon_stats">
 
-            <div className={`${pokemon.color}`}>
-              <h2>{pokemon.genus}</h2>
+            <div>
+              <h2 className={`${pokemon.color}`}>
+                {pokemon.genus}
+              </h2>
             </div>
 
             <div className="pokemon_types">

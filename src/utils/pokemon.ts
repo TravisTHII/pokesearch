@@ -35,10 +35,12 @@ const addToFamily = (array: Family[], name: string, url: string) => {
 }
 
 const traverseEvolutionChain = (array: Family[], chain: any): void => {
-  if (chain.length !== 0) {
-    addToFamily(array, chain[0].species.name, chain[0].species.url)
-    return traverseEvolutionChain(array, chain[0].evolves_to)
-  }
+  chain.forEach((x: any) => {
+    addToFamily(array, x.species.name, x.species.url)
+
+    if (x.evolves_to.length)
+      return traverseEvolutionChain(array, x.evolves_to)
+  })
 }
 
 export const getEvolutionChain = (evolution: any) => {

@@ -156,6 +156,7 @@ Pokemon
   grid-row-gap: 30px;
   width: 900px;
   margin: 0 auto;
+  padding-bottom: 150px;
 }
 .pokemon_name {
   position: relative;
@@ -227,12 +228,13 @@ Pokemon
   height: inherit;
 }
 .pokemon_image {
-  width: 475px;
-  height: 475px;
-  margin: 0 auto;
   flex: 1;
   display: flex;
   justify-content: center;
+}
+.pokemon_image span {
+  width: 475px;
+  height: 475px;
 }
 .pokemon_stats {
   flex: 0 250px;
