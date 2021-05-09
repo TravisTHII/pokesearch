@@ -20,7 +20,7 @@ export enum StateType {
 export type Action =
   | {
     type: StateType.GET_POKEMON
-    payload: { pokemon: any }
+    payload: { pokemon: Pokemon }
   }
   | {
     type: StateType.LOADING

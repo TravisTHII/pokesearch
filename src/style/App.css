@@ -298,6 +298,17 @@ Pokemon
 	100% { transform: rotate(0deg); }
 }
 
+.random_pokemon {
+  position: fixed;
+  left: 15px;
+  bottom: 15px;
+}
+.random_pokemon button {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
 /*
 ===============
 Not Found

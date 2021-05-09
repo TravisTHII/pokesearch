@@ -45,8 +45,8 @@ export function Render({ loading, pokemon }: Props) {
             <div className="family">
               <h3>Family</h3>
               <ul>
-                {pokemon.family.map(({ name, sprite }, i) => (
-                  <li key={i} title={name}>
+                {pokemon.family.map(({ id, name, sprite }, i) => (
+                  <li key={i} title={`#${id} ${name}`}>
                     <Link to={`/?search=${name}`}>
                       <img src={sprite} alt={`${name}_sprite`} />
                     </Link>
