@@ -1,4 +1,4 @@
-import { Family, Stats } from '../context/Global/types'
+import { Chain, Evolution, Family, Stats } from '../context/Global/types'
 import { capitalize } from './functions';
 
 export const filterLanguage = (array: Array<any>, language: string) =>
@@ -35,8 +35,8 @@ const addToFamily = (array: Family[], name: string, url: string) => {
   })
 }
 
-const traverseEvolutionChain = (array: Family[], chain: any) => {
-  chain.forEach((x: any) => {
+const traverseEvolutionChain = (array: Family[], e: Evolution[]) => {
+  e.forEach((x) => {
     addToFamily(array, x.species.name, x.species.url)
 
     if (x.evolves_to.length)
@@ -44,13 +44,13 @@ const traverseEvolutionChain = (array: Family[], chain: any) => {
   })
 }
 
-export const getEvolutionChain = (evolution: any) => {
+export const getEvolutionChain = (evolution: Chain) => {
 
   const family: Family[] = []
 
-  addToFamily(family, evolution[0].chain.species.name, evolution[0].chain.species.url)
+  addToFamily(family, evolution.chain.species.name, evolution.chain.species.url)
 
-  traverseEvolutionChain(family, evolution[0].chain.evolves_to)
+  traverseEvolutionChain(family, evolution.chain.evolves_to)
 
   return family
 

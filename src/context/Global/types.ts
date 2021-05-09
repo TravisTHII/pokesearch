@@ -93,3 +93,15 @@ export type FlavorText = {
   flavor_text: string
   language: NameUrl
 }
+
+export type Evolution = {
+  species: NameUrl
+  evolves_to: []
+}
+
+export type Chain = {
+  chain: {
+    species: NameUrl
+    evolves_to: Evolution[]
+  }
+}

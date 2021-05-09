@@ -55,7 +55,7 @@ export const Provider: FC<Props> = ({ children, search }: Props) => {
         weight: pokemon.weight / 10,
         types: pokemon.types,
         stats: formatStats(pokemon.stats),
-        family: getEvolutionChain(evolution),
+        family: getEvolutionChain(evolution[0]),
         generation: species.generation.name.split('-')[1]
       }
 
