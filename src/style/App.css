@@ -220,6 +220,11 @@ Pokemon
 .family ul li {
   width: 100px;
   height: 100px;
+  padding: 5px;
+}
+.family ul li > a {
+  display: block;
+  height: inherit;
 }
 .pokemon_image {
   width: 475px;

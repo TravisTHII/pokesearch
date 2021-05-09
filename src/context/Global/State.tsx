@@ -50,7 +50,7 @@ export const Provider: FC<Props> = ({ children, search }: Props) => {
         sprite: pokemon.sprites.other['official-artwork'].front_default,
         genus: filterLanguage(species.genera, 'en')[0].genus,
         abilities: pokemon.abilities,
-        flavorText: filterLanguage(species.flavor_text_entries, 'en')[0].flavor_text,
+        flavorText: filterLanguage(species.flavor_text_entries, 'en')[0].flavor_text.replace(/\f/, ' '),
         height: pokemon.height / 10,
         weight: pokemon.weight / 10,
         types: pokemon.types,

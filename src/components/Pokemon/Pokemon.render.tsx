@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Props } from './types'
 
 export function Render({ loading, pokemon }: Props) {
@@ -47,8 +48,10 @@ export function Render({ loading, pokemon }: Props) {
               <h3>Family</h3>
               <ul>
                 {pokemon.family.map((family, i) => (
-                  <li key={i}>
-                    <img src={family.sprite} alt={`${family.name}_sprite`} />
+                  <li key={i} title={family.name}>
+                    <Link to={`/?search=${family.name}`}>
+                      <img src={family.sprite} alt={`${family.name}_sprite`} />
+                    </Link>
                   </li>
                 ))}
               </ul>
