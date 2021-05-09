@@ -9,9 +9,7 @@ export function Render({ loading, pokemon }: Props) {
 
     content =
       <div className="pokeball_loading">
-        <span className="pokeball_spinning">
-          <img src="/images/pokeball.svg" alt="" />
-        </span>
+        <img src="/images/pokeball.svg" alt="spinning poke ball" />
       </div>
 
   } else if (pokemon) {
@@ -116,8 +114,8 @@ export function Render({ loading, pokemon }: Props) {
   }
 
   return (
-    <>
+    <div className="flex_ui">
       {content}
-    </>
+    </div>
   )
 }
