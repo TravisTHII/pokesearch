@@ -1,4 +1,5 @@
-import { Family } from '../context/Global/types'
+import { Family, Stats } from '../context/Global/types'
+import { capitalize } from './functions';
 
 export const filterLanguage = (array: Array<any>, language: string) =>
   array.filter(({ language: { name } }) => name === language)
@@ -34,7 +35,7 @@ const addToFamily = (array: Family[], name: string, url: string) => {
   })
 }
 
-const traverseEvolutionChain = (array: Family[], chain: any): void => {
+const traverseEvolutionChain = (array: Family[], chain: any) => {
   chain.forEach((x: any) => {
     addToFamily(array, x.species.name, x.species.url)
 
@@ -53,4 +54,11 @@ export const getEvolutionChain = (evolution: any) => {
 
   return family
 
+}
+
+export const formatStats = (array: Stats[]) => {
+  for (const i of [...array])
+    i.stat.name = capitalize(i.stat.name).replace('-', ' ')
+
+  return array
 }

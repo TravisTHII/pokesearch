@@ -62,7 +62,7 @@ type Types = {
   type: NameUrl
 }
 
-type Stats = {
+export type Stats = {
   base_stat: number
   effort: number
   stat: NameUrl

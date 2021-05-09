@@ -35,9 +35,9 @@ export function Render({ loading, pokemon }: Props) {
             <div className="abilities">
               <h3>Abilities</h3>
               <ul>
-                {pokemon.abilities.map((ability, i) => (
+                {pokemon.abilities.map(({ ability: { name } }, i) => (
                   <li key={i} className={pokemon.color}>
-                    {ability.ability.name}
+                    {name}
                   </li>
                 ))}
               </ul>
@@ -45,10 +45,10 @@ export function Render({ loading, pokemon }: Props) {
             <div className="family">
               <h3>Family</h3>
               <ul>
-                {pokemon.family.map((family, i) => (
-                  <li key={i} title={family.name}>
-                    <Link to={`/?search=${family.name}`}>
-                      <img src={family.sprite} alt={`${family.name}_sprite`} />
+                {pokemon.family.map(({ name, sprite }, i) => (
+                  <li key={i} title={name}>
+                    <Link to={`/?search=${name}`}>
+                      <img src={sprite} alt={`${name}_sprite`} />
                     </Link>
                   </li>
                 ))}
@@ -71,20 +71,20 @@ export function Render({ loading, pokemon }: Props) {
             </div>
 
             <div className="pokemon_types">
-              {pokemon.types.map((type, i) => (
+              {pokemon.types.map(({ type: { name } }, i) => (
                 <span key={i}>
-                  <img src={`/images/types/${type.type.name}.svg`} alt={`${pokemon.name.en} - ${type.type.name} type`} />
+                  <img src={`/images/types/${name}.svg`} alt={`${name} type`} />
                 </span>
               ))}
             </div>
 
             <div className="stats">
               <ul className="stats_list">
-                {pokemon.stats.map((stat, i) => (
+                {pokemon.stats.map(({ base_stat, stat: { name } }, i) => (
                   <li key={i}>
-                    {`${stat.stat.name}: `}
+                    {`${name}: `}
                     <span className={`${pokemon.color}`}>
-                      {stat.base_stat}
+                      {base_stat}
                     </span>
                   </li>
                 ))}

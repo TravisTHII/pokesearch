@@ -25,7 +25,7 @@ export function Render({
 
   const SearchSpinner =
     <div className="search_loader flex_ui">
-      <Spinner style={{ width: '30px', height: '30px' }} />
+      <Spinner stroke="var(--blue)" style={{ width: '30px', height: '30px' }} />
     </div>
 
   return (

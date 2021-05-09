@@ -4,6 +4,7 @@
   --gray: #616161;
   --gray-light: hsl(0deg 0% 90%);
   --yellow: #ffcb05;
+  --blue: #2a75bb;
   --pokemon-black: #333935;
   --pokemon-blue: #4283b8;
   --pokemon-brown: #96602f;
@@ -260,7 +261,6 @@ Pokemon
 }
 .stats_list li {
   color: var(--gray);
-  text-transform: capitalize;
 }
 .stats_list li:not(:last-child) {
   margin-bottom: 5px;

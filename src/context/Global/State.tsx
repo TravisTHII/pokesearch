@@ -12,7 +12,7 @@ import {
   Pokemon
 } from './types'
 
-import { colorClass, filterLanguage, getEvolutionChain } from '../../utils/pokemon'
+import { colorClass, filterLanguage, formatStats, getEvolutionChain } from '../../utils/pokemon'
 
 const initialState: IniitalState = {
   pokemon: null,
@@ -54,7 +54,7 @@ export const Provider: FC<Props> = ({ children, search }: Props) => {
         height: pokemon.height / 10,
         weight: pokemon.weight / 10,
         types: pokemon.types,
-        stats: pokemon.stats,
+        stats: formatStats(pokemon.stats),
         family: getEvolutionChain(evolution),
         generation: species.generation.name.split('-')[1]
       }
