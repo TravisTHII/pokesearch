@@ -19,7 +19,10 @@ export function Container({
 
   useEffect(() => {
     const q = queryString.parse(search).search
+
     if (q) setValue(String(q))
+
+    return () => setValue('')
   }, [search])
 
   const submitSearch = () =>

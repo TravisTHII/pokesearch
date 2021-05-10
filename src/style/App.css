@@ -307,8 +307,8 @@ Pokeballs
 
 .random_pokemon {
   position: fixed;
-  left: 15px;
-  bottom: 15px;
+  left: 25px;
+  bottom: 50px;
 }
 .random_pokemon button {
   display: block;

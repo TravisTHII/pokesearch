@@ -5,7 +5,9 @@ export const getPokemon = async (search: string) => {
 
   const pokeAPI = 'https://pokeapi.co/api/v2'
 
-  const q = queryString.parse(search).search
+  let q = queryString.parse(search).search
+
+  if (q) q = String(q).trim().toLocaleLowerCase()
 
   const pokemon = await axios.get(`${pokeAPI}/pokemon/${q}/`)
 
