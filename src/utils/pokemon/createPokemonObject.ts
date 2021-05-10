@@ -1,11 +1,18 @@
-import { Pokemon } from '../../components/Pokemon/types'
-import { colorClass, filterLanguage, formatStats, getEvolutionChain } from './helpers'
+import { Pokemon, PokemonResponseObject } from '../../types/Pokemon'
 
-export const formatData = (data: any) => {
+import {
+  colorClass,
+  filterLanguage,
+  formatStats,
+  getEvolutionChain
+} from './helpers'
 
-  const { pokemon, species, evolution } = data
-
-  const pokemonData: Pokemon = {
+export function createPokemonObject({
+  pokemon,
+  species,
+  evolution
+}: PokemonResponseObject): Pokemon {
+  return {
     id: pokemon.id,
     name: {
       en: pokemon.name,
@@ -23,6 +30,4 @@ export const formatData = (data: any) => {
     family: getEvolutionChain(evolution),
     generation: species.generation.name.split('-')[1]
   }
-
-  return pokemonData
 }

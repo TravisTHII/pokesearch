@@ -1,5 +1,11 @@
-import { Chain, Evolution, Family, Stats } from '../../components/Pokemon/types'
-import { capitalize } from '../functions';
+import {
+  Chain,
+  Evolution,
+  Family,
+  Stats
+} from '../../types/Pokemon'
+
+import { capitalize } from '../functions'
 
 export const filterLanguage = (array: Array<any>, language: string) =>
   array.filter(({ language: { name } }) => name === language)
