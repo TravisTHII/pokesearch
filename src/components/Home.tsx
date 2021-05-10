@@ -27,11 +27,13 @@ export const Home = ({ location: { search } }: Props) => {
         isLoading={isLoading}
         search={search}
       />
-      <Pokemon
-        isLoading={isLoading}
-        pokemon={data}
-        error={error}
-      />
+      <div className="flex_ui">
+        <Pokemon
+          isLoading={isLoading}
+          pokemon={data}
+          error={error}
+        />
+      </div>
       <Random />
     </>
   )
