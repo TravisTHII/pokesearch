@@ -35,17 +35,17 @@ export type Stats = {
   stat: NameUrl
 }
 
-export type NameUrl = {
+type NameUrl = {
   name: string
   url: string
 }
 
-export type Names = {
+type Names = {
   name: string
   language: NameUrl
 }
 
-export type Genus = {
+type Genus = {
   genus: string
   language: NameUrl
 }
@@ -56,7 +56,7 @@ export type Family = {
   sprite: string
 }
 
-export type FlavorText = {
+type FlavorText = {
   flavor_text: string
   language: NameUrl
 }
@@ -66,17 +66,10 @@ export type Evolution = {
   evolves_to: []
 }
 
-export type Chain = {
-  chain: {
-    species: NameUrl
-    evolves_to: Evolution[]
-  }
-}
-
 export type PokemonResponseObject = {
   pokemon: PokemonData
   species: SpeciesData
-  evolution: Chain
+  evolution: EvolutionData
 }
 
 export type PokemonResponse = {
@@ -88,7 +81,7 @@ export type SpeciesResponse = {
 }
 
 export type EvolutionResponse = {
-  data: Chain
+  data: EvolutionData
 }
 
 type PokemonData = {
@@ -109,14 +102,18 @@ type PokemonData = {
 }
 
 type SpeciesData = {
-  names: []
+  names: Names[]
   color: {
     name: string
   }
   evolution_chain: {
     url: string
   }
-  genera: []
-  flavor_text_entries: []
+  genera: Genus[]
+  flavor_text_entries: FlavorText[]
   generation: NameUrl
+}
+
+type EvolutionData = {
+  chain: Evolution
 }

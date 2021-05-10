@@ -1,5 +1,4 @@
 import {
-  Chain,
   Evolution,
   Family,
   Stats
@@ -50,13 +49,13 @@ const traverseEvolutionChain = (array: Family[], e: Evolution[]) => {
   })
 }
 
-export const getEvolutionChain = (evolution: Chain) => {
+export const getEvolutionChain = (evolution: Evolution) => {
 
   const family: Family[] = []
 
-  addToFamily(family, evolution.chain.species.name, evolution.chain.species.url)
+  addToFamily(family, evolution.species.name, evolution.species.url)
 
-  traverseEvolutionChain(family, evolution.chain.evolves_to)
+  traverseEvolutionChain(family, evolution.evolves_to)
 
   return family
 
