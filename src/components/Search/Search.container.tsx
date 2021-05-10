@@ -2,13 +2,16 @@ import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import queryString from 'query-string'
 
-import { useGlobalContext } from '../../context/Global'
-
 import { Render } from './Search.render'
 
-export function Container() {
+import { ContainerProps } from './types'
 
-  const { loading, search } = useGlobalContext()
+import { invalidValue } from '../../utils/functions'
+
+export function Container({
+  isLoading,
+  search
+}: ContainerProps) {
 
   const [value, setValue] = useState('')
 
@@ -19,7 +22,8 @@ export function Container() {
     if (q) setValue(String(q))
   }, [search])
 
-  const submitSearch = () => history.push(`?search=${value.trim()}`)
+  const submitSearch = () =>
+    !invalidValue(value) && history.push(`?search=${value.trim()}`)
 
   const handleSubmitSearch = (
     e: React.KeyboardEvent<HTMLInputElement>
@@ -29,7 +33,7 @@ export function Container() {
 
   return (
     <Render
-      loading={loading}
+      isLoading={isLoading}
       value={value}
       setValue={setValue}
       submitSearch={submitSearch}

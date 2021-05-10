@@ -1,6 +1,11 @@
-export interface Props {
+export interface ContainerProps {
+  isLoading: boolean,
+  search: string
+}
+
+export interface RenderProps {
   value: string
-  loading: boolean
+  isLoading: boolean
   setValue: (value: string) => void
   submitSearch: () => void
   handleSubmitSearch: (e: React.KeyboardEvent<HTMLInputElement>) => void

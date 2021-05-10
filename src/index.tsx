@@ -1,4 +1,12 @@
 import { render } from 'react-dom'
-import { App } from './App'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { App } from './components/App'
 
-render(<App />, document.querySelector('#app'))
+const client = new QueryClient()
+
+render(
+  <QueryClientProvider client={client}>
+    <App />
+  </QueryClientProvider>,
+  document.querySelector('#app')
+)

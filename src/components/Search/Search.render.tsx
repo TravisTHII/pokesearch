@@ -3,15 +3,15 @@ import { FiX, FiSearch } from 'react-icons/fi'
 
 import { Spinner } from '../Includes/Spinner'
 
-import { Props } from './types'
+import { RenderProps } from './types'
 
 export function Render({
-  loading,
+  isLoading,
   value,
   setValue,
   submitSearch,
   handleSubmitSearch
-}: Props) {
+}: RenderProps) {
 
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -58,7 +58,7 @@ export function Render({
             <FiX />
           </button>
         }
-        {!loading ? SearchButton : SearchSpinner}
+        {!isLoading ? SearchButton : SearchSpinner}
       </div>
     </div>
   )

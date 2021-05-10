@@ -5,6 +5,8 @@
   --gray-light: hsl(0deg 0% 90%);
   --yellow: #ffcb05;
   --blue: #2a75bb;
+  --white: #ffffff;
+  --black: #0a0a0ae6;
   --pokemon-black: #333935;
   --pokemon-blue: #4283b8;
   --pokemon-brown: #96602f;
@@ -15,7 +17,6 @@
   --pokemon-red: #d43323;
   --pokemon-white: #ffffff;
   --pokemon-yellow: #f4d77c;
-
 }
 
 body {
@@ -112,7 +113,7 @@ Search
 .search_bar {
   display: flex;
   width: 500px;
-  background: #fff;
+  background: var(--white);
   box-shadow: 0 0 5px var(--gray);
   border-radius: 5px;
 }
@@ -287,6 +288,12 @@ Pokemon
   letter-spacing: 0.02rem;
 }
 
+/*
+===============
+Pokeballs
+===============
+*/
+
 .pokeball_loading {
   width: 400px;
   animation: catching 1.5s infinite linear;
@@ -307,6 +314,39 @@ Pokemon
   display: block;
   width: 60px;
   height: 60px;
+}
+.random_pokemon button img {
+  filter: drop-shadow(0px 0px 5px var(--gray));
+}
+
+.pokeball_error_container {
+  position: relative;
+}
+.error_tips {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+  color: var(--white);
+  text-shadow: 0 0 5px var(--black);
+  z-index: 1;
+}
+.error_tips h1,
+.error_tips h2 {
+  margin-bottom: 5px;
+}
+.error_tips ul {
+  list-style: none;
+}
+.error_tips ul li:not(:last-child) {
+  margin-bottom: 5px;
+}
+.pokeball_error {
+  width: 500px;
+  height: 500px;
+}
+.pokeball_error img {
+  filter: contrast(0.5);
 }
 
 /*

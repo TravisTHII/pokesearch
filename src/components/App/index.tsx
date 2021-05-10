@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import { Header } from './components/Header'
-import { Home } from './components/Home'
-import { NotFound } from './components/NotFound'
+import { Header } from '../Header'
+import { Home } from '../Home'
+import { NotFound } from '../NotFound'
 
-import './style/App.css'
+import '../../style/App.css'
 
 export function App() {
   return (
