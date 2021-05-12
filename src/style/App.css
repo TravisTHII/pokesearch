@@ -175,6 +175,12 @@ Search
 .query_results {
   list-style: none;
 }
+.empty_query {
+  text-align: center;
+  padding: 15px;
+  color: var(--gray);
+  line-height: 30px;
+}
 .query_card:hover {
   background-color: var(--yellow);
 }

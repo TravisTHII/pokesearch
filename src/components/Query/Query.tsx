@@ -35,7 +35,12 @@ export function Query({
       <span className="search_divider"></span>
       <div className="query" ref={scrollRef}>
         <ul className="query_results">
-          {pokemon?.map(pokemon => (
+          {!pokemon.length &&
+            <div className="empty_query">
+              <h3>No Results found...</h3>
+            </div>
+          }
+          {pokemon.map(pokemon => (
             <QueryCard key={pokemon.id} pokemon={pokemon} />
           ))}
         </ul>
