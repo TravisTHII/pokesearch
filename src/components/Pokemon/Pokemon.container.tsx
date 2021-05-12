@@ -4,11 +4,12 @@ import { ContainerProps } from './types'
 
 export function Container({
   isLoading,
-  pokemon,
-  error
+  error,
+  pokemon
 }: ContainerProps) {
-  if (error) return <Error />
+
   if (isLoading) return <Loading />
+  if (error) return <Error />
   if (pokemon) return <Render pokemon={pokemon} />
 
   return (<></>)

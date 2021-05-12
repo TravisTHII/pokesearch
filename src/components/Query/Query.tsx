@@ -1,17 +1,17 @@
 import { useEffect, useRef } from 'react'
 import PerfectScrollbar from 'perfect-scrollbar'
 
-import { QueryProps } from './types'
+import { useSearchContext } from '../../context/Search'
 
 import { useSearchPokemon } from '../../hooks'
 
 import { QueryCard } from './QueryCard'
+
 import { StopScrolling } from '../../utils/functions'
 
-export function Query({
-  value,
-  active
-}: QueryProps) {
+export function Query() {
+
+  const { value, active } = useSearchContext()
 
   const scrollRef = useRef<HTMLDivElement>(null!)
 

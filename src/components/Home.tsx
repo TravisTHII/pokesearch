@@ -31,8 +31,8 @@ export const Home = ({ location: { search } }: Props) => {
       <div className="flex_ui">
         <Pokemon
           isLoading={isLoading}
-          pokemon={data}
           error={error}
+          pokemon={data}
         />
       </div>
       <Random />

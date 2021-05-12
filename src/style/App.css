@@ -172,7 +172,7 @@ Search
   box-sizing: border-box;
   overflow: hidden;
 }
-.query_results {
+.query .query_results {
   list-style: none;
 }
 .empty_query {
@@ -181,18 +181,18 @@ Search
   color: var(--gray);
   line-height: 30px;
 }
-.query_card:hover {
+.query_item:hover {
   background-color: var(--yellow);
 }
 .query_card:not(:last-child) {
  margin-bottom: 5px;
 }
-.query_card > a {
+.query_item {
   display: flex;
   width: 100%;
   height: 90px;
 }
-.query_card .image {
+.query_item .image {
   width: 90px;
   height: 90px;
 }

@@ -1,28 +1,45 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import queryString from 'query-string'
 import { FiX } from 'react-icons/fi'
 
-import { RenderProps } from './types'
+import { useSearchContext } from '../../context/Search'
 
 import { useOutsideClick } from '../../hooks'
 
 import { Query } from '../Query'
 import { SearchButton } from './SearchButton'
 
-export function Render({
-  isLoading,
-  value,
-  setValue,
-  active,
-  setActive,
-  showResults,
-  startSearch,
-  submitSearch,
-  handleSubmitSearch
-}: RenderProps) {
+export function Search() {
+
+  const {
+    search,
+    value,
+    active,
+    setValue,
+    setActive,
+    startSearch,
+    showResults,
+    handleSubmitSearch
+  } = useSearchContext()
 
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const SearchRef = useOutsideClick(() => setActive(false))
+  const SearchRef = useOutsideClick((e) => {
+    const t = e.target as Element
+
+    if (!t.closest('.search_main') || t.closest('.query_results')) {
+      if (active) setActive(false)
+    }
+  })
+
+  useEffect(() => {
+    const q = queryString.parse(search).search
+
+    if (q) setValue(String(q))
+
+    return () => setValue('')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search])
 
   return (
     <div className="search flex_ui">
@@ -56,15 +73,9 @@ export function Render({
               <FiX />
             </button>
           }
-          <SearchButton
-            isLoading={isLoading}
-            submitSearch={submitSearch}
-          />
+          <SearchButton />
         </div>
-        <Query
-          value={value}
-          active={active}
-        />
+        <Query />
       </div>
     </div>
   )

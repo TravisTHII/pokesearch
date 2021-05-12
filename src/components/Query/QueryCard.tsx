@@ -4,7 +4,10 @@ import { QueryCardProps } from './types'
 
 export const QueryCard = ({ pokemon }: QueryCardProps) =>
   <li className="query_card">
-    <Link to={`/?search=${pokemon.id}`}>
+    <Link
+      className="query_item"
+      to={`/?search=${pokemon.id}`}
+    >
       <div className="image">
         <img src={pokemon.image} alt={pokemon.name.english} />
       </div>

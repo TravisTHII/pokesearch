@@ -1,15 +1,22 @@
 import { FiSearch } from 'react-icons/fi'
 
-import { SBProps } from './types'
+import { useSearchContext } from '../../context/Search'
 
 import { Spinner } from '../Includes/Spinner'
 
-export function SearchButton({
-  isLoading,
-  submitSearch
-}: SBProps) {
+export function SearchButton() {
 
-  if (!isLoading) {
+  const { isLoading, submitSearch } = useSearchContext()
+
+  if (isLoading) {
+
+    return (
+      <div className="search_loader flex_ui">
+        <Spinner stroke="var(--blue)" style={{ width: '30px', height: '30px' }} />
+      </div>
+    )
+
+  } else {
 
     return (
       <button
@@ -18,14 +25,6 @@ export function SearchButton({
       >
         <FiSearch />
       </button>
-    )
-
-  } else {
-
-    return (
-      <div className="search_loader flex_ui">
-        <Spinner stroke="var(--blue)" style={{ width: '30px', height: '30px' }} />
-      </div>
     )
 
   }
