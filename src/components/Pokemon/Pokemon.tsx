@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+
 import { RenderProps } from './types'
 
 export const Render = ({ pokemon }: RenderProps) =>

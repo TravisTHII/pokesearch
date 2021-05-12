@@ -1,7 +1,8 @@
 import { useQuery } from 'react-query'
 
 import { Search } from './Search'
-import { Pokemon, Random } from './Pokemon'
+import { Pokemon } from './Pokemon'
+import { Random } from './Random'
 
 import { getPokemon } from '../utils/pokemon'
 

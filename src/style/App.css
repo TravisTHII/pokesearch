@@ -60,21 +60,21 @@ Header
 ===============
 */
 
-.header {
+#header {
   height: 50px;
 }
-.header .header_container {
+#header .header_container {
   display: flex;
   justify-content: flex-end;
   width: 90%;
   margin: 0 auto;
 }
-.header .header_container .header_icons {
+#header .header_container .header_icons {
   display: flex;
   justify-content: space-between;
   width: 110px;
 }
-.header .header_container .header_icons .icon {
+#header .header_container .header_icons .icon {
   color: var(--gray);
   width: 50px;
   height: 50px;
@@ -94,7 +94,6 @@ Search
   height: 300px;
   flex-direction: column;
 }
-
 .search_logo {
   width: 300px;
   height: 150px;
@@ -109,12 +108,14 @@ Search
   line-height: 30px;
   color: var(--gray);
 }
-
+.search_main {
+  position: relative;
+  z-index: 9;
+}
 .search_bar {
   display: flex;
   width: 500px;
   background: var(--white);
-  box-shadow: 0 0 5px var(--gray);
   border-radius: 5px;
 }
 .search_bar .search_input {
@@ -146,6 +147,86 @@ Search
   width: 50px;
   height: 40px;
 }
+.search_results {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 615px;
+  padding: 40px 15px 5px;
+  box-sizing: border-box;
+  background-color: var(--white);
+  top: 0;
+  z-index: -1;
+  border-radius: 5px;
+}
+.search_divider {
+  border-top: 1px solid #e8eaed;
+  padding-bottom: 4px;
+  display: block;
+}
+.query {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 5px);
+  padding-right: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.query_results {
+  list-style: none;
+}
+.query_card:hover {
+  background-color: var(--yellow);
+}
+.query_card:not(:last-child) {
+ margin-bottom: 5px;
+}
+.query_card > a {
+  display: flex;
+  width: 100%;
+  height: 90px;
+}
+.query_card .image {
+  width: 90px;
+  height: 90px;
+}
+.query_info {
+  flex: 1;
+  position: relative;
+  padding-left: 5px;
+}
+.query_header h1 {
+  font-size: 1.5rem;
+  line-height: 30px;
+}
+.query_header h2 {
+  font-size: 1rem;
+  line-height: 30px;
+}
+.query_header h3 {
+  position: absolute;
+  font-size: 5rem;
+  color: var(--gray-light);
+  top: 0;
+  line-height: 90px;
+  z-index: -1;
+}
+.query_types {
+  display: flex;
+}
+.query_types span {
+  height: 20px;
+  padding: 5px;
+}
+.query_types span:first-child {
+  padding-left: 0;
+}
+.visible {
+  display: block;
+}
+.box_shadow {
+  box-shadow: 0 0 5px var(--gray);
+}
 
 /*
 ===============
@@ -166,7 +247,6 @@ Pokemon
   line-height: 80px;
   font-size: 4rem;
   text-transform: capitalize;
-  text-shadow: 0 0 5px var(--gray);
 }
 .name_jp, .pokemon_id{
   position: absolute;
@@ -177,6 +257,9 @@ Pokemon
   top: 55px;
   left: 150px;
   z-index: 1;
+}
+.name_en,
+.name_jp {
   text-shadow: 0 0 5px var(--gray);
 }
 .pokemon_name .pokemon_id {
@@ -412,8 +495,133 @@ Common
 }
 .pokemon_color_white {
   color: var(--pokemon-white);
-  text-shadow: 0 0 3px var(--gray);
+  text-shadow: 0 0 3px var(--gray) !important;
 }
 .pokemon_color_yellow {
   color: var(--pokemon-yellow);
+}
+
+/*
+===============
+perfectscrollbar
+===============
+*/
+
+/*
+ * Container style
+ */
+ .ps {
+  overflow: hidden !important;
+  overflow-anchor: none;
+  -ms-overflow-style: none;
+  touch-action: auto;
+  -ms-touch-action: auto;
+}
+
+/*
+ * Scrollbar rail styles
+ */
+.ps__rail-x {
+  display: none;
+  opacity: 0;
+  transition: background-color .2s linear, opacity .2s linear;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  height: 15px;
+  /* there must be 'bottom' or 'top' for ps__rail-x */
+  bottom: 0px;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps__rail-y {
+  display: none;
+  opacity: 0;
+  transition: background-color .2s linear, opacity .2s linear;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  width: 10px;
+  /* there must be 'right' or 'left' for ps__rail-y */
+	right: 0;
+	/* Ugly workaround : https://github.com/mdbootstrap/perfect-scrollbar/issues/792 */
+	left: auto !important;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps--active-x > .ps__rail-x,
+.ps--active-y > .ps__rail-y {
+  display: block;
+  background-color: transparent;
+}
+
+.ps:hover > .ps__rail-x,
+.ps:hover > .ps__rail-y,
+.ps--focus > .ps__rail-x,
+.ps--focus > .ps__rail-y,
+.ps--scrolling-x > .ps__rail-x,
+.ps--scrolling-y > .ps__rail-y {
+  opacity: 0.6;
+}
+
+.ps .ps__rail-x:hover,
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-y.ps--clicking {
+  background-color: var(--gray-light);
+  opacity: 0.9;
+}
+
+/*
+ * Scrollbar thumb styles
+ */
+.ps__thumb-x {
+  background-color: var(--yellow);
+  border-radius: 0px;
+  transition: background-color .2s linear, height .2s ease-in-out;
+  -webkit-transition: background-color .2s linear, height .2s ease-in-out;
+  height: 6px;
+  /* there must be 'bottom' for ps__thumb-x */
+  bottom: 2px;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps__thumb-y {
+  background-color: var(--yellow);
+  border-radius: 0px;
+  transition: background-color .2s linear, width .2s ease-in-out;
+  -webkit-transition: background-color .2s linear, width .2s ease-in-out;
+  width: 5px;
+  /* there must be 'right' for ps__thumb-y */
+  right: 0px;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps__rail-x:hover > .ps__thumb-x,
+.ps__rail-x:focus > .ps__thumb-x,
+.ps__rail-x.ps--clicking .ps__thumb-x {
+  background-color: var(--yellow);
+  height: 11px;
+}
+
+.ps__rail-y:hover > .ps__thumb-y,
+.ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y.ps--clicking .ps__thumb-y {
+  background-color: var(--yellow);
+  width: 10px;
+}
+
+/* MS supports */
+@supports (-ms-overflow-style: none) {
+  .ps {
+    overflow: auto !important;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .ps {
+    overflow: auto !important;
+  }
 }

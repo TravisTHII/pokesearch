@@ -18,6 +18,20 @@ export type Pokemon = {
   generation: string
 }
 
+export type SearchPokemon = {
+  id: number
+  name: {
+    english: string
+    japanese: string
+  }
+  color: string
+  genus: string
+  types: [{
+    name: string
+  }]
+  image: string
+}
+
 export type Abilities = {
   ability: NameUrl
   is_hidden: boolean

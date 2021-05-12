@@ -1,7 +1,7 @@
 import { FiCode, FiGithub } from 'react-icons/fi'
 
 export const Header = () =>
-  <header className="header">
+  <header id="header">
     <div className="header_container">
       <div className="header_icons">
         <a

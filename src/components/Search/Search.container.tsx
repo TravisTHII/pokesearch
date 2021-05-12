@@ -14,6 +14,7 @@ export function Container({
 }: ContainerProps) {
 
   const [value, setValue] = useState('')
+  const [active, setActive] = useState(false)
 
   const history = useHistory()
 
@@ -28,10 +29,23 @@ export function Container({
   const submitSearch = () =>
     !invalidValue(value) && history.push(`?search=${value.trim()}`)
 
+  const showResults = () =>
+    setActive(!invalidValue(value))
+
+  const startSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+
+    setValue(value)
+    setActive(!invalidValue(value) === true)
+  }
+
   const handleSubmitSearch = (
     e: React.KeyboardEvent<HTMLInputElement>
   ) => {
-    if (e.key === 'Enter') submitSearch()
+    if (e.key === 'Enter') {
+      submitSearch()
+      setActive(false)
+    }
   }
 
   return (
@@ -39,6 +53,10 @@ export function Container({
       isLoading={isLoading}
       value={value}
       setValue={setValue}
+      active={active}
+      setActive={setActive}
+      showResults={showResults}
+      startSearch={startSearch}
       submitSearch={submitSearch}
       handleSubmitSearch={handleSubmitSearch}
     />
