@@ -1,16 +1,12 @@
 import { useQuery } from 'react-query'
 
-import { Search } from './Search'
-import { Pokemon } from './Pokemon'
-import { Random } from './Random'
+import { Search } from '../Search'
+import { Pokemon } from '../Pokemon'
+import { Random } from '../Random'
 
-import { getPokemon } from '../utils/pokemon'
+import { Props } from './types'
 
-interface Props {
-  location: {
-    search: string
-  }
-}
+import { getPokemon } from '../../utils/pokemon'
 
 export const Home = ({ location: { search } }: Props) => {
 
@@ -28,13 +24,11 @@ export const Home = ({ location: { search } }: Props) => {
         isLoading={isLoading}
         search={search}
       />
-      <div className="flex_ui">
-        <Pokemon
-          isLoading={isLoading}
-          error={error}
-          pokemon={data}
-        />
-      </div>
+      <Pokemon
+        isLoading={isLoading}
+        error={error}
+        pokemon={data}
+      />
       <Random />
     </>
   )

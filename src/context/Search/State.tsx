@@ -40,8 +40,10 @@ export const Provider = ({ children, isLoading, search }: ProviderProps) => {
     })
   }
 
-  const submitSearch = () =>
+  const submitSearch = () => {
     !invalidValue(state.value) && history.push(`?search=${state.value.trim()}`)
+    if (state.active) setActive(false)
+  }
 
   const showResults = () =>
     setActive(!invalidValue(state.value))

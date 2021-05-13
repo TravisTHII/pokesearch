@@ -16,10 +16,21 @@ export const QueryCard = ({ pokemon }: QueryCardProps) =>
           <h1 className={pokemon.color}>
             {pokemon.name.english}
           </h1>
-          <h2 className={pokemon.color}>
-            {pokemon.name.japanese}
-          </h2>
-          <h3>{pokemon.id}</h3>
+          <div className="name_content">
+            <div>
+              <h2 className={pokemon.color}>
+                {pokemon.name.japanese}
+              </h2>
+            </div>
+            <div className="genus_name_content">
+              <h2 className={pokemon.color}>
+                {pokemon.genus}
+              </h2>
+            </div>
+          </div>
+          <h3>
+            {pokemon.id}
+          </h3>
         </div>
         <div className="query_types">
           {pokemon.types.map(({ name }, i) => (

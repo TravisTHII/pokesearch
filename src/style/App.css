@@ -181,8 +181,11 @@ Search
   color: var(--gray);
   line-height: 30px;
 }
-.query_item:hover {
-  background-color: var(--yellow);
+.query_card:hover {
+  background-color: var(--gray-light);
+}
+.query_card:hover .query_header h3 {
+  color: var(--white);
 }
 .query_card:not(:last-child) {
  margin-bottom: 5px;
@@ -200,14 +203,25 @@ Search
   flex: 1;
   position: relative;
   padding-left: 5px;
+  z-index: 1;
+}
+.query_header {
+  position: relative;
 }
 .query_header h1 {
   font-size: 1.5rem;
   line-height: 30px;
 }
+.name_content {
+  display: flex;
+  justify-content: space-between;
+}
 .query_header h2 {
   font-size: 1rem;
   line-height: 30px;
+}
+.genus_name_content {
+  padding-right: 5px;
 }
 .query_header h3 {
   position: absolute;

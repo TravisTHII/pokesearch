@@ -5,9 +5,9 @@ import { useSearchContext } from '../../context/Search'
 
 import { useSearchPokemon } from '../../hooks'
 
-import { QueryCard } from './QueryCard'
-
 import { StopScrolling } from '../../utils/functions'
+
+import { QueryCard } from './QueryCard'
 
 export function Query() {
 
