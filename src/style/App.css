@@ -61,6 +61,8 @@ Header
 */
 
 #header {
+  display: block;
+  width: 100%;
   height: 50px;
 }
 #header .header_container {
@@ -111,15 +113,16 @@ Search
 .search_main {
   position: relative;
   z-index: 9;
+  width: 500px;
 }
 .search_bar {
   display: flex;
-  width: 500px;
+  width: inherit;
   background: var(--white);
   border-radius: 5px;
 }
 .search_bar .search_input {
-  width: 500px;
+  width: inherit;
   height: 40px;
   flex: 1;
   border: 0;
@@ -182,7 +185,7 @@ Search
   line-height: 30px;
 }
 .query_card:hover {
-  background-color: var(--gray-light);
+  background-color: #f1f1f1;
 }
 .query_card:hover .query_header h3 {
   color: var(--white);
@@ -215,6 +218,10 @@ Search
 .name_content {
   display: flex;
   justify-content: space-between;
+}
+.query_header h1,
+.name_content:first-child {
+  text-shadow: 0 0 3px var(--gray);
 }
 .query_header h2 {
   font-size: 1rem;
@@ -454,7 +461,7 @@ Pokeballs
 
 /*
 ===============
-Not Found
+Not Found Page
 ===============
 */
 
@@ -519,6 +526,57 @@ Common
 }
 .pokemon_color_yellow {
   color: var(--pokemon-yellow);
+}
+
+/*
+===============
+Common
+===============
+*/
+
+/* Smaller than
+	============================================ */
+@media only screen and (max-width: 500px) {
+  .search_main {
+    width: 100%;
+  }
+
+  .pokemon_image span {
+    width: 100%;
+  }
+
+  .visible {
+    display: none;
+  }
+  .search_bar {
+    box-shadow: 0 0 5px var(--gray);
+  }
+
+  .pokeball_error {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon_name {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .name_jp, .pokemon_id {
+    position: initial;
+  }
+	.pokemon_details {
+    flex-direction: column;
+  }
+  .pokemon_stats {
+    text-align: center;
+  }
+
+  .random_pokemon {
+    position: initial;
+    padding: 15px;
+  }
 }
 
 /*

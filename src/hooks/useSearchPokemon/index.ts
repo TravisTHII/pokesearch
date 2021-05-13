@@ -26,7 +26,7 @@ export const useSearchPokemon = (search: string) => {
     const lc = search.toLocaleLowerCase()
     return pokemon.filter(({ id, name: { english } }) =>
       english.includes(lc) || String(id).includes(lc)
-    ).slice(0, 9)
+    ).slice(0, 20)
   }, [search, pokemon])
 
   return results
