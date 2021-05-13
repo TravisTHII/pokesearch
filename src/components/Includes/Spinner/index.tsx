@@ -1,8 +1,4 @@
-
-interface Props {
-  style?: object
-  stroke?: string
-}
+import { Props } from './types'
 
 export const Spinner = ({ style, stroke }: Props) =>
   <svg xmlns="http://www.w3.org/2000/svg" style={style} width="50px" height="50px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" className="uil-ring-alt">
