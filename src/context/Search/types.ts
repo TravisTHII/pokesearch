@@ -7,9 +7,6 @@ export interface ProviderProps {
 }
 
 export type InitialStateType = {
-  isLoading: boolean
-  value: string
-  active: boolean
   search: string
   setValue: (value: string) => void
   setActive: (active: boolean) => void
@@ -17,7 +14,7 @@ export type InitialStateType = {
   showResults: () => void
   startSearch: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleSubmitSearch: (e: React.KeyboardEvent<HTMLInputElement>) => void
-}
+} & State
 
 export type State = {
   isLoading: boolean
