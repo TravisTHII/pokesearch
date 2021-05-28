@@ -1,4 +1,3 @@
-
 export const Error = () =>
   <div className="flex_ui">
     <div className="pokeball_error_container">

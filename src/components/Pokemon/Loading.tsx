@@ -1,4 +1,3 @@
-
 export const Loading = () =>
   <div className="flex_ui">
     <div className="pokeball_loading">
