@@ -62,7 +62,7 @@ export const Render = ({ pokemon }: RenderProps) =>
           <div className="pokemon_types">
             {pokemon.types.map(({ type: { name } }, i) => (
               <span key={i}>
-                <img src={`/images/types/${name}.svg`} alt={`${name} type`} />
+                <img src={`/images/pokemon-types/${name}.svg`} alt={`${name} type`} />
               </span>
             ))}
           </div>

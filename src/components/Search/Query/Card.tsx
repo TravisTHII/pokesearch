@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-import { QueryCardProps } from './types'
+import { CardProps } from './types'
 
-export const QueryCard = ({ pokemon }: QueryCardProps) =>
+export const Card = ({ pokemon }: CardProps) =>
   <li className="query_card">
     <Link
       className="query_item"
@@ -35,7 +35,7 @@ export const QueryCard = ({ pokemon }: QueryCardProps) =>
         <div className="query_types">
           {pokemon.types.map(({ name }, i) => (
             <span key={i}>
-              <img src={`/images/types/${name}.svg`} alt={`${name} type`} />
+              <img src={`/images/pokemon-types/${name}.svg`} alt={`${name} type`} />
             </span>
           ))}
         </div>

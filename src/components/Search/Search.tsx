@@ -6,7 +6,7 @@ import { useSearchContext } from '../../context/Search'
 
 import { useOutsideClick } from '../../hooks'
 
-import { Query } from '../Query'
+import { Query } from './Query'
 import { SearchButton } from './SearchButton'
 
 export function Search() {

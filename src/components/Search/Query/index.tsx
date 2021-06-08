@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react'
 import PerfectScrollbar from 'perfect-scrollbar'
 
-import { useSearchContext } from '../../context/Search'
+import { useSearchContext } from '../../../context/Search'
 
-import { useSearchPokemon } from '../../hooks'
+import { useSearchPokemon } from '../../../hooks'
 
-import { StopScrolling } from '../../utils/functions'
+import { StopScrolling } from '../../../utils/functions'
 
-import { QueryCard } from './QueryCard'
+import { Card } from './Card'
 
 export function Query() {
 
@@ -41,7 +41,7 @@ export function Query() {
             </div>
           }
           {pokemon.map(pokemon => (
-            <QueryCard key={pokemon.id} pokemon={pokemon} />
+            <Card key={pokemon.id} pokemon={pokemon} />
           ))}
         </ul>
       </div>
