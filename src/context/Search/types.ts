@@ -22,17 +22,12 @@ export type State = {
   active: boolean
 }
 
-export enum DispatchName {
-  SET_VALUE = 'SET_VALUE',
-  SET_ACTIVE = 'SET_ACTIVE'
-}
-
 export type Action =
   | {
-    type: DispatchName.SET_VALUE
+    type: 'SET_VALUE'
     payload: { value: string }
   }
   | {
-    type: DispatchName.SET_ACTIVE
+    type: 'SET_ACTIVE'
     payload: { active: boolean }
   }

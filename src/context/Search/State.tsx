@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from 'react'
 import { useHistory } from 'react-router'
 import { Reducer } from './Reducer'
 
-import { State, InitialStateType, ProviderProps, DispatchName } from './types'
+import { State, InitialStateType, ProviderProps } from './types'
 
 import { invalidValue } from '../../utils/functions'
 
@@ -24,7 +24,7 @@ export const Provider = ({ children, isLoading, search }: ProviderProps) => {
 
   const setValue = (value: string) => {
     dispatch({
-      type: DispatchName.SET_VALUE,
+      type: 'SET_VALUE',
       payload: {
         value
       }
@@ -33,7 +33,7 @@ export const Provider = ({ children, isLoading, search }: ProviderProps) => {
 
   const setActive = (active: boolean) => {
     dispatch({
-      type: DispatchName.SET_ACTIVE,
+      type: 'SET_ACTIVE',
       payload: {
         active
       }
