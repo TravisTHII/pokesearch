@@ -15,7 +15,7 @@ export const Home = () =>
       </div>
       <Search
         isLoading={false}
-        search={''}
+        search={""}
       />
     </div>
   </>

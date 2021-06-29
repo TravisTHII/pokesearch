@@ -27,9 +27,7 @@ export function Search() {
   const SearchRef = useOutsideClick((e) => {
     const t = e.target as Element
 
-    if (!t.closest('.search_main') || t.closest('.query_results')) {
-      if (active) setActive(false)
-    }
+    if (active && (!t.closest('.search_main') || t.closest('.query_results'))) setActive(false)
   })
 
   useEffect(() => {

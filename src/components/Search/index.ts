@@ -1,1 +1,1 @@
-export { Container as Search } from './Search.container'
+export { Provider as Search } from './Search.provider'

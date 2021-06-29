@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useCallback } from 'react'
+import { createContext, useContext, useReducer, useCallback, useRef, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import { reducer } from './reducer'
 
@@ -22,6 +22,12 @@ export const Provider = ({ children, isLoading, search }: ProviderProps) => {
 
   const history = useHistory()
 
+  const mounterRef = useRef(true)
+
+  useEffect(() => {
+    return () => { mounterRef.current = false }
+  }, [])
+
   const setValue = useCallback((value: string) =>
     dispatch({
       type: 'SET_VALUE',
@@ -32,12 +38,14 @@ export const Provider = ({ children, isLoading, search }: ProviderProps) => {
     , [])
 
   const setActive = (active: boolean) => {
-    dispatch({
-      type: 'SET_ACTIVE',
-      payload: {
-        active
-      }
-    })
+    if(mounterRef.current){
+      dispatch({
+        type: 'SET_ACTIVE',
+        payload: {
+          active
+        }
+      })
+    }
   }
 
   const submitSearch = () => {
