@@ -1,16 +1,18 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import { Header } from '../Header'
 import { Home } from '../Home'
+import { Pokedex } from '../Pokedex'
 import { NotFound } from '../NotFound'
+import { Random } from '../Random'
 
 import '../../style/App.css'
 
 export const App = () =>
   <Router>
-    <Header />
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/pokedex" component={Pokedex} />
       <Route component={NotFound} />
     </Switch>
+    <Random />
   </Router>

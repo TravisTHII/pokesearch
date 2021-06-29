@@ -6,7 +6,7 @@ export const Card = ({ pokemon }: CardProps) =>
   <li className="query_card">
     <Link
       className="query_item"
-      to={`/?search=${pokemon.id}`}
+      to={`/pokedex?search=${pokemon.id}`}
     >
       <div className="image">
         <img src={pokemon.image} alt={pokemon.name.english} />

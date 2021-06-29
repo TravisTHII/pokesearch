@@ -1,6 +1,6 @@
 import { Action, State } from './types'
 
-export const Reducer = (state: State, action: Action): State => {
+export const reducer = (state: State, action: Action): State => {
 
   if (action.type === 'SET_VALUE') {
     return {

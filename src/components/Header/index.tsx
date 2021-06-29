@@ -1,8 +1,11 @@
 import { FiCode, FiGithub } from 'react-icons/fi'
 
-export const Header = () =>
+import { Props } from './types'
+
+export const Header = ({ children }: Props) =>
   <header id="header">
     <div className="header_container">
+      {children}
       <div className="header_icons">
         <a
           className="icon flex_ui"

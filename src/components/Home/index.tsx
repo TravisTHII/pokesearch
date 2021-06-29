@@ -1,35 +1,21 @@
-import { useQuery } from 'react-query'
-
+import { Header } from '../Header'
 import { Search } from '../Search'
-import { Pokemon } from '../Pokemon'
-import { Random } from '../Random'
 
-import { Props } from './types'
-
-import { getPokemon } from '../../utils/pokemon'
-
-export const Home = ({ location: { search } }: Props) => {
-
-  const { data, isLoading, error } = useQuery(
-    ['pokemon', search],
-    () => getPokemon(search),
-    {
-      enabled: Boolean(search)
-    }
-  )
-
-  return (
-    <>
+export const Home = () =>
+  <>
+    <Header />
+    <div className="search flex_ui">
+      <div className="search_logo flex_ui">
+        <div className="logo">
+          <img src="/images/pokemon.svg" alt="Pokémon logo" />
+        </div>
+        <div className="tag_line">
+          <p>Gotta Search ‘Em All!</p>
+        </div>
+      </div>
       <Search
-        isLoading={isLoading}
-        search={search}
+        isLoading={false}
+        search={''}
       />
-      <Pokemon
-        isLoading={isLoading}
-        error={error}
-        pokemon={data}
-      />
-      <Random />
-    </>
-  )
-}
+    </div>
+  </>

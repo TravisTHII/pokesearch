@@ -66,15 +66,32 @@ Header
   height: 50px;
 }
 #header .header_container {
-  display: flex;
-  justify-content: flex-end;
   width: 90%;
+  height: 100%;
   margin: 0 auto;
+  position: relative;
+  text-align: center;
+}
+#header .header_container .header_logo {
+  width: 150px;
+  height: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+}
+#header .header_container .header_search {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
 }
 #header .header_container .header_icons {
   display: flex;
   justify-content: space-between;
   width: 110px;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 #header .header_container .header_icons .icon {
   color: var(--gray);
@@ -262,11 +279,14 @@ Pokemon
 ===============
 */
 
+.pokemon_container {
+  padding-top: 90px;
+}
+
 .pokemon {
   display: grid;
   grid-row-gap: 30px;
   width: 900px;
-  padding-bottom: 50px;
 }
 .pokemon_name {
   position: relative;
@@ -531,7 +551,7 @@ Common
 
 /*
 ===============
-Common
+Responsiveness
 ===============
 */
 
