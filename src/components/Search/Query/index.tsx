@@ -5,7 +5,7 @@ import { useSearchContext } from '../../../context/Search'
 
 import { useSearchPokemon } from '../../../hooks'
 
-import { StopScrolling } from '../../../utils/functions'
+import { enableScroll, StopScrolling } from '../../../utils'
 
 import { Card } from './Card'
 
@@ -27,6 +27,7 @@ export function Query() {
     return () => {
       reset.scrollTop = 0
       ps.destroy()
+      enableScroll()
     }
   }, [value])
 

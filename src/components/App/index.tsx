@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Home } from '../Home'
 import { Pokedex } from '../Pokedex'
 import { NotFound } from '../NotFound'
-import { Random } from '../Random'
 
 import '../../style/App.css'
 
@@ -14,5 +13,4 @@ export const App = () =>
       <Route exact path="/pokedex" component={Pokedex} />
       <Route component={NotFound} />
     </Switch>
-    <Random />
   </Router>

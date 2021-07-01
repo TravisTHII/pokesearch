@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router'
 
-export const Random = () => {
+export const RandomButton = () => {
 
   const history = useHistory()
 

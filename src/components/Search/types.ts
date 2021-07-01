@@ -1,4 +1,4 @@
 export interface Props {
-  isLoading: boolean
-  search: string
+  isLoading?: boolean
+  search?: string
 }

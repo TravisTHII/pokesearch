@@ -22,18 +22,13 @@ export function Pokedex({ location: { search } }: Props) {
   return (
     <>
       <Header>
-        <Link
-          to="/"
-          className="header_logo flex_ui"
-        >
+        <Link to="/" className="header_logo flex_ui" >
           <img src="/images/pokemon.svg" alt="Pokémon logo" />
         </Link>
-        <div className="header_search">
-          <Search
-            isLoading={isLoading}
-            search={search}
-          />
-        </div>
+        <Search
+          isLoading={isLoading}
+          search={search}
+        />
       </Header>
       <div className="pokemon_container">
         <Pokemon

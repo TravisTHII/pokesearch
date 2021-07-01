@@ -4,7 +4,7 @@ import { reducer } from './reducer'
 
 import { State, InitialStateType, ProviderProps } from './types'
 
-import { invalidValue } from '../../utils/functions'
+import { invalidValue } from '../../utils'
 
 const initialState: State = {
   isLoading: false,

@@ -69,29 +69,20 @@ Header
   width: 90%;
   height: 100%;
   margin: 0 auto;
-  position: relative;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
 }
 #header .header_container .header_logo {
   width: 150px;
   height: 100%;
   padding: 5px;
   box-sizing: border-box;
-  position: absolute;
-  left: 0;
-}
-#header .header_container .header_search {
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
 }
 #header .header_container .header_icons {
   display: flex;
   justify-content: space-between;
   width: 110px;
-  position: absolute;
-  right: 0;
-  top: 0;
+  margin-left: 40px;
 }
 #header .header_container .header_icons .icon {
   color: var(--gray);
@@ -108,25 +99,31 @@ Search
 ===============
 */
 
-.search {
+.home {
   width: 100%;
   height: 300px;
   flex-direction: column;
 }
-.search_logo {
+.home .logo{
   width: 300px;
   height: 150px;
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
 }
-.search_logo .logo {
+.logo .pokemon_logo {
   width: 300px;
   height: 120px;
 }
-.search_logo .tag_line {
+.logo .tag_line {
   line-height: 30px;
   color: var(--gray);
+}
+#search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 550px;
 }
 .search_main {
   position: relative;
@@ -137,7 +134,10 @@ Search
   display: flex;
   width: inherit;
   background: var(--white);
-  border-radius: 5px;
+}
+.search_bar,
+.search_results {
+  border-radius: 20px;
 }
 .search_bar .search_input {
   width: inherit;
@@ -178,7 +178,6 @@ Search
   background-color: var(--white);
   top: 0;
   z-index: -1;
-  border-radius: 5px;
 }
 .search_divider {
   border-top: 1px solid #e8eaed;
@@ -327,7 +326,8 @@ Pokemon
 .pokemon_data > div:not(:last-child) {
   margin-bottom: 10px;
  }
-.pokemon_data h3 {
+.pokemon_data h3, 
+.pokemon_family h3 {
   color: var(--gray);
   font-size: 2rem;
 }
@@ -341,21 +341,16 @@ Pokemon
 .abilities ul li:not(:last-child) {
   margin-bottom: 5px;
 }
-.family h3 {
+.pokemon_family h3 {
   margin-bottom: 5px;
 }
-.family ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  list-style: none;
-}
-.family ul li {
+.pokemon_family ul li {
+  display: inline-flex;
   width: 100px;
   height: 100px;
   padding: 5px;
 }
-.family ul li > a {
+.pokemon_family ul li > a {
   display: block;
   height: inherit;
 }
@@ -437,14 +432,12 @@ Pokeballs
 }
 
 .random_pokemon {
-  position: fixed;
-  left: 25px;
-  bottom: 50px;
+
 }
 .random_pokemon button {
   display: block;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
 }
 .random_pokemon button img {
   filter: drop-shadow(0px 0px 5px var(--gray));

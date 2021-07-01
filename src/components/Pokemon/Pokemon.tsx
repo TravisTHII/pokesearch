@@ -31,18 +31,6 @@ export const Render = ({ pokemon }: RenderProps) =>
               ))}
             </ul>
           </div>
-          <div className="family">
-            <h3>Family</h3>
-            <ul>
-              {pokemon.family.map(({ id, name, sprite }, i) => (
-                <li key={i} title={`#${id} ${name}`}>
-                  <Link to={`/pokedex?search=${name}`}>
-                    <img src={sprite} alt={`${name}_sprite`} />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         <div className="pokemon_image">
@@ -97,6 +85,19 @@ export const Render = ({ pokemon }: RenderProps) =>
 
         </div>
 
+      </div>
+
+      <div className="pokemon_family">
+        <h3>Family</h3>
+        <ul>
+          {pokemon.family.map(({ id, name, sprite }, i) => (
+            <li key={i} title={`#${id} ${name}`}>
+              <Link to={`/pokedex?search=${name}`}>
+                <img src={sprite} alt={`${name}_sprite`} />
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
 
     </div>

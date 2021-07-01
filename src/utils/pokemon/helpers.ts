@@ -4,7 +4,7 @@ import {
   Stats
 } from '../../types/Pokemon'
 
-import { capitalize } from '../functions'
+import { capitalize } from '..'
 
 export const filterLanguage = (array: Array<any>, language: string) =>
   array.filter(({ language: { name } }) => name === language)

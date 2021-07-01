@@ -7,6 +7,7 @@ import { useSearchContext } from '../../context/Search'
 import { useOutsideClick } from '../../hooks'
 
 import { Query } from './Query'
+import { RandomButton } from './RandomButton'
 import { SearchButton } from './SearchButton'
 
 export function Search() {
@@ -39,31 +40,34 @@ export function Search() {
   }, [search, setValue])
 
   return (
-    <div className="search_main" ref={SearchRef}>
-      <div className={`search_bar${!active ? ' box_shadow' : ''}`}>
-        <input
-          ref={inputRef}
-          type="text"
-          className="search_input"
-          placeholder="Search for pokémon by Id or Name"
-          spellCheck="false"
-          maxLength={50}
-          value={value}
-          onChange={startSearch}
-          onClick={showResults}
-          onKeyPress={handleSubmitSearch}
-        />
-        {value &&
-          <button
-            className="search_button flex_ui"
-            onClick={() => { setValue(''); inputRef.current?.focus() }}
-          >
-            <FiX />
-          </button>
-        }
-        <SearchButton />
+    <div id="search">
+      <div className="search_main" ref={SearchRef}>
+        <div className={`search_bar${!active ? ' box_shadow' : ''}`}>
+          <input
+            ref={inputRef}
+            type="text"
+            className="search_input"
+            placeholder="Search for pokémon by Id or Name"
+            spellCheck="false"
+            maxLength={50}
+            value={value}
+            onChange={startSearch}
+            onClick={showResults}
+            onKeyPress={handleSubmitSearch}
+          />
+          {value &&
+            <button
+              className="search_button flex_ui"
+              onClick={() => { setValue(''); inputRef.current?.focus() }}
+            >
+              <FiX />
+            </button>
+          }
+          <SearchButton />
+        </div>
+        <Query />
       </div>
-      <Query />
+      <RandomButton />
     </div>
   )
 }
