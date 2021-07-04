@@ -92,7 +92,7 @@ export const Render = ({ pokemon }: RenderProps) =>
         <ul>
           {pokemon.family.map(({ id, name, sprite }, i) => (
             <li key={i} title={`#${id} ${name}`}>
-              <Link to={`/pokedex?search=${name}`}>
+              <Link to={`/pokedex?search=${id}`}>
                 <img src={sprite} alt={`${name}_sprite`} />
               </Link>
             </li>

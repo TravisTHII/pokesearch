@@ -2,8 +2,8 @@ import { FiCode, FiGithub } from 'react-icons/fi'
 
 import { Props } from './types'
 
-export const Header = ({ children }: Props) =>
-  <header id="header">
+export const Header = ({ children, className }: Props) =>
+  <header id="header" className={className}>
     <div className="header_container">
       {children}
       <div className="header_icons">

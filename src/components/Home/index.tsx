@@ -3,9 +3,7 @@ import { Search } from '../Search'
 
 export const Home = () =>
   <>
-    <Header>
-      <div></div>
-    </Header>
+    <Header className="home_header" />
     <div id="home" className="flex_ui">
       <div className="home_container flex_ui">
         <div className="logo flex_ui">

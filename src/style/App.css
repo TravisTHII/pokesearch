@@ -82,7 +82,6 @@ Header
   display: flex;
   justify-content: space-between;
   width: 110px;
-  padding-left: 40px;
 }
 #header .header_container .header_icons .icon {
   color: var(--gray);
@@ -91,6 +90,9 @@ Header
 }
 .icon:hover {
   background-color: var(--gray-light);
+}
+#header.home_header .header_container {
+  justify-content: flex-end;
 }
 
 /*
@@ -280,7 +282,7 @@ Pokemon
 */
 
 .pokemon_container {
-  padding-top: 90px;
+  padding: 90px 0;
 }
 
 .pokemon {
@@ -548,10 +550,10 @@ Responsiveness
 /* Smaller than
 	============================================ */
 @media only screen and (max-width: 1000px) { 
-  #header {
+  #header:not(.home_header) {
     height: 220px;
   }
-  #header .header_container {
+  #header:not(.home_header) .header_container {
     flex-direction: column;
     align-items: center;
   }
@@ -561,9 +563,6 @@ Responsiveness
   #search {
     height: 90px;
     flex-direction: column;
-  }
-  #header .header_container .header_icons {
-    padding-left: unset;
   }
 
   #home .home_container {
@@ -627,7 +626,6 @@ Responsiveness
     width: 90%;
   }
 }
-
 
 /*
 ===============
