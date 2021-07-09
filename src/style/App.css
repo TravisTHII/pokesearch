@@ -282,6 +282,8 @@ Pokemon
 */
 
 .pokemon_container {
+  width: 90%;
+  margin: 0 auto;
   padding: 90px 0;
 }
 
@@ -571,8 +573,14 @@ Responsiveness
 }
 
 @media only screen and (max-width: 900px) {
+  .pokemon {
+    width: 100%;
+  }
   .pokemon_details {
     flex-direction: column;
+  }
+  .pokemon_name .name_en {
+    text-align: center;
   }
   .pokemon_stats {
     flex: unset;
@@ -619,11 +627,21 @@ Responsiveness
 }
 
 @media only screen and (max-width: 500px) {
+  .pokemon_container {
+    width: 100%;
+  }
+
   .pokemon_image span {
     width: 100%;
   }
   .pokemon_stats {
     width: 90%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .pokemon_name .name_en {
+    font-size: 2rem;
   }
 }
 
