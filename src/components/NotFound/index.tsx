@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export const NotFound = () =>
+export const NotFound = () => (
   <div className="not_found flex_ui">
     <div className="not_found-container">
       <h1>404 Not found...</h1>
@@ -9,3 +9,4 @@ export const NotFound = () =>
       </Link>
     </div>
   </div>
+)

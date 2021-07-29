@@ -2,24 +2,16 @@ import { Link } from 'react-router-dom'
 
 import { RenderProps } from './types'
 
-export const Render = ({ pokemon }: RenderProps) =>
+export const Render = ({ pokemon }: RenderProps) => (
   <div className="flex_ui">
     <div className="pokemon">
-
       <div className="pokemon_name">
-        <h1 className={`name_en ${pokemon.color}`}>
-          {pokemon.name.en}
-        </h1>
-        <h2 className={`name_jp ${pokemon.color}`}>
-          {pokemon.name.jp}
-        </h2>
-        <h3 className="pokemon_id">
-          {pokemon.id}
-        </h3>
+        <h1 className={`name_en ${pokemon.color}`}>{pokemon.name.en}</h1>
+        <h2 className={`name_jp ${pokemon.color}`}>{pokemon.name.jp}</h2>
+        <h3 className="pokemon_id">{pokemon.id}</h3>
       </div>
 
       <div className="pokemon_details">
-
         <div className="pokemon_data">
           <div className="abilities">
             <h3>Abilities</h3>
@@ -40,17 +32,17 @@ export const Render = ({ pokemon }: RenderProps) =>
         </div>
 
         <div className="pokemon_stats">
-
           <div>
-            <h2 className={`${pokemon.color}`}>
-              {pokemon.genus}
-            </h2>
+            <h2 className={`${pokemon.color}`}>{pokemon.genus}</h2>
           </div>
 
           <div className="pokemon_types">
             {pokemon.types.map(({ type: { name } }, i) => (
               <span key={i}>
-                <img src={`/images/pokemon-types/${name}.svg`} alt={`${name} type`} />
+                <img
+                  src={`/images/pokemon-types/${name}.svg`}
+                  alt={`${name} type`}
+                />
               </span>
             ))}
           </div>
@@ -60,9 +52,7 @@ export const Render = ({ pokemon }: RenderProps) =>
               {pokemon.stats.map(({ base_stat, stat: { name } }, i) => (
                 <li key={i}>
                   {`${name}: `}
-                  <span className={`${pokemon.color}`}>
-                    {base_stat}
-                  </span>
+                  <span className={`${pokemon.color}`}>{base_stat}</span>
                 </li>
               ))}
             </ul>
@@ -74,17 +64,14 @@ export const Render = ({ pokemon }: RenderProps) =>
           </div>
 
           <div className="generation">
-            Generation: <span className={`${pokemon.color}`}>{pokemon.generation}</span>
+            Generation:{' '}
+            <span className={`${pokemon.color}`}>{pokemon.generation}</span>
           </div>
 
           <div className="flavor_text">
-            <p className={pokemon.color}>
-              {pokemon.flavorText}
-            </p>
+            <p className={pokemon.color}>{pokemon.flavorText}</p>
           </div>
-
         </div>
-
       </div>
 
       <div className="pokemon_family">
@@ -99,6 +86,6 @@ export const Render = ({ pokemon }: RenderProps) =>
           ))}
         </ul>
       </div>
-
     </div>
   </div>
+)

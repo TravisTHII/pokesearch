@@ -1,13 +1,12 @@
-
 export type Pokemon = {
-  id: number,
+  id: number
   name: {
     en: string
     jp: string
-  },
+  }
   color: string
-  sprite: string,
-  genus: string,
+  sprite: string
+  genus: string
   height: number
   weight: number
   flavorText: string
@@ -26,9 +25,11 @@ export type SearchPokemon = {
   }
   color: string
   genus: string
-  types: [{
-    name: string
-  }]
+  types: [
+    {
+      name: string
+    }
+  ]
   image: string
 }
 
@@ -99,7 +100,7 @@ export type EvolutionResponse = {
 }
 
 type PokemonData = {
-  id: number,
+  id: number
   name: string
   height: number
   weight: number

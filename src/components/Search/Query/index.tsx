@@ -10,7 +10,6 @@ import { enableScroll, StopScrolling } from '../../../utils'
 import { Card } from './Card'
 
 export function Query() {
-
   const { value, active } = useSearchContext()
 
   const scrollRef = useRef<HTMLDivElement>(null!)
@@ -36,12 +35,12 @@ export function Query() {
       <span className="search_divider"></span>
       <div className="query" ref={scrollRef}>
         <ul className="query_results">
-          {!pokemon.length &&
+          {!pokemon.length && (
             <div className="empty_query">
               <h3>No Results found...</h3>
             </div>
-          }
-          {pokemon.map(pokemon => (
+          )}
+          {pokemon.map((pokemon) => (
             <Card key={pokemon.id} pokemon={pokemon} />
           ))}
         </ul>

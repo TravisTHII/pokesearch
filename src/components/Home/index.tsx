@@ -1,7 +1,7 @@
 import { Header } from '../Header'
 import { Search } from '../Search'
 
-export const Home = () =>
+export const Home = () => (
   <>
     <Header className="home_header" />
     <div id="home" className="flex_ui">
@@ -18,3 +18,4 @@ export const Home = () =>
       </div>
     </div>
   </>
+)

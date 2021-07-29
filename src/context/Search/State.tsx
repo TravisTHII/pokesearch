@@ -1,4 +1,11 @@
-import { createContext, useContext, useReducer, useCallback, useRef, useEffect } from 'react'
+import {
+  createContext,
+  useContext,
+  useReducer,
+  useCallback,
+  useRef,
+  useEffect,
+} from 'react'
 import { useHistory } from 'react-router'
 import { reducer } from './reducer'
 
@@ -17,7 +24,6 @@ export const Context = createContext({} as InitialStateType)
 export const useSearchContext = () => useContext(Context)
 
 export const Provider = ({ children, isLoading, search }: ProviderProps) => {
-
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const history = useHistory()
@@ -25,31 +31,36 @@ export const Provider = ({ children, isLoading, search }: ProviderProps) => {
   const mounterRef = useRef(true)
 
   useEffect(() => {
-    return () => { mounterRef.current = false }
+    return () => {
+      mounterRef.current = false
+    }
   }, [])
 
-  const setValue = useCallback((value: string) =>
-    dispatch({
-      type: 'SET_VALUE',
-      payload: {
-        value
-      }
-    })
-    , [])
+  const setValue = useCallback(
+    (value: string) =>
+      dispatch({
+        type: 'SET_VALUE',
+        payload: {
+          value,
+        },
+      }),
+    []
+  )
 
   const setActive = (active: boolean) => {
-    if(mounterRef.current){
+    if (mounterRef.current) {
       dispatch({
         type: 'SET_ACTIVE',
         payload: {
-          active
-        }
+          active,
+        },
       })
     }
   }
 
   const submitSearch = () => {
-    !invalidValue(state.value) && history.push(`/pokedex?search=${state.value.trim()}`)
+    !invalidValue(state.value) &&
+      history.push(`/pokedex?search=${state.value.trim()}`)
     if (state.active) setActive(false)
   }
 
@@ -70,17 +81,19 @@ export const Provider = ({ children, isLoading, search }: ProviderProps) => {
   }
 
   return (
-    <Context.Provider value={{
-      ...state,
-      isLoading,
-      search,
-      setValue,
-      setActive,
-      submitSearch,
-      showResults,
-      startSearch,
-      handleSubmitSearch
-    }}>
+    <Context.Provider
+      value={{
+        ...state,
+        isLoading,
+        search,
+        setValue,
+        setActive,
+        submitSearch,
+        showResults,
+        startSearch,
+        handleSubmitSearch,
+      }}
+    >
       {children}
     </Context.Provider>
   )

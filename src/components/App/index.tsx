@@ -6,7 +6,7 @@ import { NotFound } from '../NotFound'
 
 import '../../style/App.css'
 
-export const App = () =>
+export const App = () => (
   <Router>
     <Switch>
       <Route exact path="/" component={Home} />
@@ -14,3 +14,4 @@ export const App = () =>
       <Route component={NotFound} />
     </Switch>
   </Router>
+)

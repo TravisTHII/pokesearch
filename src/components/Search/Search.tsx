@@ -11,7 +11,6 @@ import { RandomButton } from './RandomButton'
 import { SearchButton } from './SearchButton'
 
 export function Search() {
-
   const {
     search,
     value,
@@ -20,7 +19,7 @@ export function Search() {
     setActive,
     startSearch,
     showResults,
-    handleSubmitSearch
+    handleSubmitSearch,
   } = useSearchContext()
 
   const inputRef = useRef<HTMLInputElement>(null)
@@ -28,7 +27,8 @@ export function Search() {
   const SearchRef = useOutsideClick((e) => {
     const t = e.target as Element
 
-    if (active && (!t.closest('.search_main') || t.closest('.query_results'))) setActive(false)
+    if (active && (!t.closest('.search_main') || t.closest('.query_results')))
+      setActive(false)
   })
 
   useEffect(() => {
@@ -55,14 +55,17 @@ export function Search() {
             onClick={showResults}
             onKeyPress={handleSubmitSearch}
           />
-          {value &&
+          {value && (
             <button
               className="search_button flex_ui"
-              onClick={() => { setValue(''); inputRef.current?.focus() }}
+              onClick={() => {
+                setValue('')
+                inputRef.current?.focus()
+              }}
             >
               <FiX />
             </button>
-          }
+          )}
           <SearchButton />
         </div>
         <Query />

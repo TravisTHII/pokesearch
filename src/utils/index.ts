@@ -1,6 +1,6 @@
 export function invalidValue(s: string) {
   s = s.trim()
-  return s === null || (/^ *$/).test(s)
+  return s === null || /^ *$/.test(s)
 }
 
 export const capitalize = (string: string) =>

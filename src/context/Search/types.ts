@@ -24,10 +24,10 @@ export type State = {
 
 export type Action =
   | {
-    type: 'SET_VALUE'
-    payload: { value: string }
-  }
+      type: 'SET_VALUE'
+      payload: { value: string }
+    }
   | {
-    type: 'SET_ACTIVE'
-    payload: { active: boolean }
-  }
+      type: 'SET_ACTIVE'
+      payload: { active: boolean }
+    }
