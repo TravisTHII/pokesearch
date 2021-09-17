@@ -140,9 +140,6 @@ Search
   display: flex;
   width: inherit;
   background: var(--white);
-}
-.search_bar,
-.search_results {
   border-radius: 20px;
 }
 .search_bar .search_input {
@@ -184,6 +181,7 @@ Search
   background-color: var(--white);
   top: 0;
   z-index: -1;
+  border-radius: 10px;
 }
 .search_divider {
   border-top: 1px solid #e8eaed;
