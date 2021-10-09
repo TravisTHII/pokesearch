@@ -6,7 +6,7 @@ import {
   useRef,
   useEffect,
 } from 'react'
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router-dom'
 import { reducer } from './reducer'
 
 import { State, InitialStateType, ProviderProps } from './types'
