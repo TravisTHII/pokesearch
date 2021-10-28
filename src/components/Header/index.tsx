@@ -9,7 +9,7 @@ export const Header = ({ children, className }: Props) => (
       <div className="header_icons">
         <a
           className="icon flex_ui"
-          href="https://github.com/TravisTHII/search"
+          href="https://github.com/TravisTHII/pokesearch"
           target="_blank"
           rel="noopener noreferrer"
           title="See project code"
