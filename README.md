@@ -1,6 +1,9 @@
 # Pokésearch [![Netlify Status](https://api.netlify.com/api/v1/badges/c3949923-1325-473c-b43a-9daef8a66761/deploy-status)](https://pocketmonsters-search.netlify.app/)
 pokémon search & discover app
 
+Visit the website:
+- https://pocketmonsters-search.netlify.app
+
 ## Overview
 A beautiful and simple app built with react that allows users to simplify the discovery of pokémon, as well as learn more about them.
 
