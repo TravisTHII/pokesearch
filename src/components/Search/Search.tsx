@@ -10,7 +10,7 @@ import { Query } from './query'
 import { RandomButton } from './RandomButton'
 import { SearchButton } from './SearchButton'
 
-export function Search() {
+export const Search = () => {
   const {
     search,
     value,

@@ -42,6 +42,7 @@ a {
 ul {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 button {
@@ -86,13 +87,18 @@ Header
   justify-content: space-between;
   width: 110px;
 }
-#header .header_container .header_icons .icon {
-  color: var(--gray);
+#header .header_container .header_icons li {
   width: 50px;
   height: 50px;
+  cursor: pointer;
 }
-.icon:hover {
+#header .header_container .header_icons li:hover {
   background-color: var(--gray-light);
+}
+#header .header_container .header_icons .icon {
+  color: var(--gray);
+  vertical-align: bottom;
+  stroke-width: 0.09em;
 }
 #header.home_header .header_container {
   justify-content: flex-end;
@@ -428,21 +434,6 @@ Pokeballs
 
 .pokeball_loading {
   width: 400px;
-  animation: catching 1.5s infinite linear;
-}
-@keyframes catching {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(25deg);
-  }
-  75% {
-    transform: rotate(-25deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
 }
 
 .random_pokemon button {

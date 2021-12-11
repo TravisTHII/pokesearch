@@ -9,7 +9,7 @@ import { enableScroll, StopScrolling } from '../../../utils'
 
 import { Card } from './Card'
 
-export function Query() {
+export const Query = () => {
   const { value, active } = useSearchContext()
 
   const scrollRef = useRef<HTMLDivElement>(null!)
