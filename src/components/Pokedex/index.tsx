@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useQuery } from 'react-query'
 
 import { Header } from '../header'
-import { Pokemon } from '../pokemon'
+import { Container } from '../pokemon'
 import { Search } from '../search'
 
 import { getPokemon } from '../../utils/pokemon'
@@ -27,7 +27,7 @@ export const Pokedex = () => {
         <Search isLoading={isLoading} search={search} />
       </Header>
       <div className="pokemon_container flex_ui">
-        <Pokemon isLoading={isLoading} error={error} pokemon={data} />
+        <Container isLoading={isLoading} error={error} pokemon={data} />
       </div>
     </>
   )

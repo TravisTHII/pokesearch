@@ -1,4 +1,4 @@
-export { Container as Pokemon } from './Pokemon.container'
+export { Container } from './Container'
 export { Error } from './Error'
 export { Loading } from './Loading'
-export { Render } from './Pokemon'
+export { Pokemon } from './Pokemon'
