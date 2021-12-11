@@ -1,5 +1,5 @@
-import { Header } from '../Header'
-import { Search } from '../Search'
+import { Header } from '../header'
+import { Search } from '../search'
 
 export const Home = () => (
   <>

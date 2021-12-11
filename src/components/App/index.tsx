@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import { Home } from '../Home'
-import { Pokedex } from '../Pokedex'
-import { NotFound } from '../NotFound'
+import { Home } from '../home'
+import { Pokedex } from '../pokedex'
+import { NotFound } from '../notfound'
 
 import '../../style/App.css'
 

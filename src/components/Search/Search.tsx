@@ -2,11 +2,11 @@ import { useEffect, useRef } from 'react'
 import queryString from 'query-string'
 import { FiX } from 'react-icons/fi'
 
-import { useSearchContext } from '../../context/Search'
+import { useSearchContext } from '../../context/search'
 
 import { useOutsideClick } from '../../hooks'
 
-import { Query } from './Query'
+import { Query } from './query'
 import { RandomButton } from './RandomButton'
 import { SearchButton } from './SearchButton'
 

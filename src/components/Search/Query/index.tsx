@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import PerfectScrollbar from 'perfect-scrollbar'
 
-import { useSearchContext } from '../../../context/Search'
+import { useSearchContext } from '../../../context/search'
 
 import { useSearchPokemon } from '../../../hooks'
 

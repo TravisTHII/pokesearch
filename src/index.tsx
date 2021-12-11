@@ -1,7 +1,7 @@
 import { render } from 'react-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import { App } from './components/App'
+import { App } from './components/app'
 
 const client = new QueryClient()
 

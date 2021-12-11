@@ -1,4 +1,4 @@
-import { Error, Loading, Render } from './'
+import { Error, Loading, Render } from '.'
 
 import { ContainerProps } from './types'
 

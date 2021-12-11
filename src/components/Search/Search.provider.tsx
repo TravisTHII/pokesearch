@@ -1,4 +1,4 @@
-import { SearchProvider } from '../../context/Search'
+import { SearchProvider } from '../../context/search'
 
 import { Props } from './types'
 

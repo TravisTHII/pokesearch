@@ -1,8 +1,8 @@
 import { FiSearch } from 'react-icons/fi'
 
-import { useSearchContext } from '../../context/Search'
+import { useSearchContext } from '../../context/search'
 
-import { Spinner } from '../Includes/Spinner'
+import { Spinner } from '../Includes/spinner'
 
 export function SearchButton() {
   const { isLoading, submitSearch } = useSearchContext()

@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { useQuery } from 'react-query'
 
-import { Header } from '../Header'
-import { Pokemon } from '../Pokemon'
-import { Search } from '../Search'
+import { Header } from '../header'
+import { Pokemon } from '../pokemon'
+import { Search } from '../search'
 
 import { Props } from './types'
 
