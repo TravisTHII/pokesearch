@@ -8,13 +8,13 @@ import { Search } from '../search'
 import { getPokemon } from '../../utils/pokemon'
 
 export const Pokedex = () => {
-  const location = useLocation()
+  const { search } = useLocation()
 
   const { data, isLoading, error } = useQuery(
-    ['pokemon', location.search],
-    () => getPokemon(location.search),
+    ['pokemon', search],
+    () => getPokemon(search),
     {
-      enabled: Boolean(location.search),
+      enabled: Boolean(search),
     }
   )
 
@@ -24,9 +24,9 @@ export const Pokedex = () => {
         <Link to="/" className="header_logo flex_ui">
           <img src="/images/pokemon.svg" alt="Pokémon logo" />
         </Link>
-        <Search isLoading={isLoading} search={location.search} />
+        <Search isLoading={isLoading} search={search} />
       </Header>
-      <div className="pokemon_container">
+      <div className="pokemon_container flex_ui">
         <Pokemon isLoading={isLoading} error={error} pokemon={data} />
       </div>
     </>
