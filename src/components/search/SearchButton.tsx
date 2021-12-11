@@ -2,7 +2,7 @@ import { FiSearch } from 'react-icons/fi'
 
 import { useSearchContext } from '../../context/search'
 
-import { Spinner } from '../Includes/spinner'
+import { Spinner } from '../includes/spinner'
 
 export const SearchButton = () => {
   const { isLoading, submitSearch } = useSearchContext()
