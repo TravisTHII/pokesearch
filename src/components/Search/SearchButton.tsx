@@ -4,7 +4,7 @@ import { useSearchContext } from '../../context/search'
 
 import { Spinner } from '../Includes/spinner'
 
-export function SearchButton() {
+export const SearchButton = () => {
   const { isLoading, submitSearch } = useSearchContext()
 
   if (isLoading) {

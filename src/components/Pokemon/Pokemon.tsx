@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-import { RenderProps } from './types'
+import { PokemonProps } from './types'
 
-export const Render = ({ pokemon }: RenderProps) => (
+export const Pokemon = ({ pokemon }: PokemonProps) => (
   <div className="flex_ui">
     <div className="pokemon">
       <div className="pokemon_name">

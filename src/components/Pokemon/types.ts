@@ -6,6 +6,6 @@ export interface ContainerProps {
   pokemon: Pokemon | undefined
 }
 
-export interface RenderProps {
+export interface PokemonProps {
   pokemon: Pokemon
 }

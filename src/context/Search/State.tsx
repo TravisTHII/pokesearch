@@ -6,7 +6,7 @@ import {
   useRef,
   useEffect,
 } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { reducer } from './reducer'
 
 import { State, InitialStateType, ProviderProps } from './types'
@@ -26,7 +26,7 @@ export const useSearchContext = () => useContext(Context)
 export const Provider = ({ children, isLoading, search }: ProviderProps) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const mounterRef = useRef(true)
 
@@ -60,7 +60,7 @@ export const Provider = ({ children, isLoading, search }: ProviderProps) => {
 
   const submitSearch = () => {
     !invalidValue(state.value) &&
-      history.push(`/pokedex?search=${state.value.trim()}`)
+      navigate(`/pokedex?search=${state.value.trim()}`)
     if (state.active) setActive(false)
   }
 
