@@ -15,6 +15,7 @@ export const Pokedex = () => {
     () => getPokemon(search),
     {
       enabled: Boolean(search),
+      refetchOnWindowFocus: false
     }
   )
 
