@@ -342,18 +342,24 @@ Pokemon
   color: var(--gray);
   font-size: 2rem;
 }
+.abilities h3 {
+  margin-bottom: 15px;
+}
 .abilities ul {
   list-style: none;
 }
 .abilities ul li {
   line-height: 25px;
   text-transform: capitalize;
+  padding: 2px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px var(--gray);
 }
 .abilities ul li:not(:last-child) {
   margin-bottom: 5px;
 }
 .pokemon_family h3 {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 .pokemon_family ul li {
   display: inline-flex;
@@ -372,6 +378,7 @@ Pokemon
 }
 .pokemon_image span {
   width: 475px;
+  height: 475px;
 }
 .pokemon_stats {
   flex: 0 250px;
@@ -399,16 +406,41 @@ Pokemon
 .stats_list li {
   color: var(--gray);
 }
+.stats_list li:not(:last-child)::after {
+  content: '';
+  border-top: 1px solid #e8eaed;
+  padding-bottom: 4px;
+  display: block;
+}
+.stats_list li span {
+  display: block;
+}
+.stats_list span:first-child {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
+.stats_list span:last-child {
+  padding-left: 10px;
+}
 .stats_list li:not(:last-child) {
   margin-bottom: 5px;
 }
 .stats_list .base_stat {
   color: var(--gray-light);
 }
+.round_div {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px var(--gray);
+}
 .measurements p {
   color: var(--gray);
 }
 .measurements p:not(:last-child) {
+  margin-bottom: 5px;
+}
+.measurements {
   margin-bottom: 5px;
 }
 .generation {
@@ -633,6 +665,7 @@ Responsiveness
 
   .pokemon_image span {
     width: 100%;
+    height: unset;
   }
   .pokemon_stats {
     width: 90%;

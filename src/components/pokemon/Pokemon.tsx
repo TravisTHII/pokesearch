@@ -48,27 +48,29 @@ export const Pokemon = ({ pokemon }: PokemonProps) => (
           </div>
 
           <div className="stats">
-            <ul className="stats_list">
+            <ul className="stats_list round_div">
               {pokemon.stats.map(({ base_stat, stat: { name } }, i) => (
                 <li key={i}>
-                  {`${name}: `}
+                  <span>{`${name}`}</span>
                   <span className={`${pokemon.color}`}>{base_stat}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="measurements">
-            <p>{`Height: ${pokemon.height} meters`}</p>
-            <p>{`Weight: ${pokemon.weight} kilograms`}</p>
+          <div className="round_div">
+            <div className="measurements">
+              <p>{`Height: ${pokemon.height} meters`}</p>
+              <p>{`Weight: ${pokemon.weight} kilograms`}</p>
+            </div>
+
+            <div className="generation">
+              Generation:{' '}
+              <span className={`${pokemon.color}`}>{pokemon.generation}</span>
+            </div>
           </div>
 
-          <div className="generation">
-            Generation:{' '}
-            <span className={`${pokemon.color}`}>{pokemon.generation}</span>
-          </div>
-
-          <div className="flavor_text">
+          <div className="flavor_text round_div">
             <p className={pokemon.color}>{pokemon.flavorText}</p>
           </div>
         </div>
