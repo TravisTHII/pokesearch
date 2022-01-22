@@ -105,7 +105,7 @@ export const Pokemon = ({ pokemon }: PokemonProps) => (
     </div>
 
     <div className="pokemon_family">
-      <h3>Family</h3>
+      <h3>Evolution</h3>
       <ul>
         {pokemon.family.map(({ id, name, sprite }, i) => (
           <li key={i} title={`#${id} ${name}`}>
