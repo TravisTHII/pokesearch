@@ -19,4 +19,4 @@ A beautiful and simple app built with react that allows users to simplify the di
 3. `yarn start`
 
 ## Preview
-![pokesearch-github-preview](https://user-images.githubusercontent.com/75787788/124057352-4c954d00-d9f5-11eb-8443-7e033972204d.png)
+![pokesearch-github-preview](https://user-images.githubusercontent.com/75787788/150643416-e6d5eb76-1de7-4ff1-8524-a5be24f53a42.png)
