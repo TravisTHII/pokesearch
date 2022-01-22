@@ -15,7 +15,7 @@ export const Pokemon = ({ pokemon }: PokemonProps) => (
         <div className="pokemon_data">
           <div className="abilities">
             <h3>Abilities</h3>
-            <ul>
+            <ul className="card_ui list_divider">
               {pokemon.abilities.map(({ ability: { name } }, i) => (
                 <li key={i} className={pokemon.color}>
                   {name}
@@ -47,8 +47,8 @@ export const Pokemon = ({ pokemon }: PokemonProps) => (
             ))}
           </div>
 
-          <div className="stats">
-            <ul className="stats_list round_div">
+          <div>
+            <ul className="stats_list card_ui list_divider">
               {pokemon.stats.map(({ base_stat, stat: { name } }, i) => (
                 <li key={i}>
                   <span>{`${name}`}</span>
@@ -58,19 +58,24 @@ export const Pokemon = ({ pokemon }: PokemonProps) => (
             </ul>
           </div>
 
-          <div className="round_div">
-            <div className="measurements">
-              <p>{`Height: ${pokemon.height} meters`}</p>
-              <p>{`Weight: ${pokemon.weight} kilograms`}</p>
-            </div>
-
-            <div className="generation">
-              Generation:{' '}
-              <span className={`${pokemon.color}`}>{pokemon.generation}</span>
-            </div>
+          <div>
+            <ul className="extra_stats card_ui list_divider">
+              <li>
+                <p>{`Height: ${pokemon.height} meters`}</p>
+              </li>
+              <li>
+                <p>{`Weight: ${pokemon.weight} kilograms`}</p>
+              </li>
+              <li>
+                Generation:{' '}
+                <span className={`generation ${pokemon.color}`}>
+                  {pokemon.generation}
+                </span>
+              </li>
+            </ul>
           </div>
 
-          <div className="flavor_text round_div">
+          <div className="flavor_text card_ui">
             <p className={pokemon.color}>{pokemon.flavorText}</p>
           </div>
         </div>
