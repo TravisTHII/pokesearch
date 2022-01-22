@@ -289,6 +289,7 @@ Pokemon
 */
 
 .pokemon_container {
+  width: 100%;
   padding: 50px 0;
 }
 
@@ -296,6 +297,7 @@ Pokemon
   display: grid;
   grid-row-gap: 30px;
   width: 900px;
+  color: var(--gray);
 }
 .pokemon_name {
   position: relative;
@@ -327,19 +329,23 @@ Pokemon
   left: 50px;
   z-index: -1;
 }
+.pokemon_name .mobile {
+  display: none;
+}
 .pokemon_details {
   display: flex;
 }
 .pokemon_data {
-  flex: 0 120px;
   text-align: center;
 }
-.pokemon_data > div:not(:last-child) {
+.pokemon_data > div:not(:last-child),
+.pokemon_stats > div:not(:last-child),
+.pokemon_family h3,
+.abilities h3 {
   margin-bottom: 10px;
 }
 .pokemon_data h3,
 .pokemon_family h3 {
-  color: var(--gray);
   font-size: 2rem;
 }
 .abilities ul {
@@ -348,12 +354,6 @@ Pokemon
 .abilities ul li {
   line-height: 25px;
   text-transform: capitalize;
-}
-.abilities ul li:not(:last-child) {
-  margin-bottom: 5px;
-}
-.pokemon_family h3 {
-  margin-bottom: 5px;
 }
 .pokemon_family ul li {
   display: inline-flex;
@@ -371,13 +371,7 @@ Pokemon
   justify-content: center;
 }
 .pokemon_image span {
-  width: 475px;
-}
-.pokemon_stats {
-  flex: 0 250px;
-}
-.pokemon_stats > div:not(:last-child) {
-  margin-bottom: 10px;
+  max-height: 475px;
 }
 .pokemon_stats h2 {
   text-align: center;
@@ -396,32 +390,32 @@ Pokemon
   list-style: none;
   font-size: 1.3rem;
 }
-.stats_list li {
-  color: var(--gray);
+.stats_list li span,
+.mobile ul li span {
+  display: block;
 }
-.stats_list li:not(:last-child) {
-  margin-bottom: 5px;
+.stats_list span:first-child,
+.mobile ul li span:first-child {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
+.stats_list span:last-child,
+.mobile ul li span:last-child {
+  padding-left: 10px;
 }
 .stats_list .base_stat {
   color: var(--gray-light);
 }
-.measurements p {
-  color: var(--gray);
-}
-.measurements p:not(:last-child) {
-  margin-bottom: 5px;
+.extra_stats li {
+  line-height: 25px;
 }
 .generation {
-  color: var(--gray);
-}
-.generation span {
   font-weight: bold;
   text-transform: uppercase;
 }
 .flavor_text {
-  font-size: 1rem;
   font-weight: bold;
-  letter-spacing: 0.02rem;
 }
 
 /*
@@ -510,6 +504,19 @@ Common
   justify-content: center;
 }
 
+.card_ui {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px var(--gray);
+}
+
+.list_divider li:not(:last-child)::after {
+  content: '';
+  border-top: 1px solid #e8eaed;
+  padding-bottom: 4px;
+  display: block;
+}
+
 .pokemon_color_black {
   color: var(--pokemon-black);
 }
@@ -548,6 +555,17 @@ Responsiveness
 ===============
 */
 
+/* Larger than
+	============================================ */
+@media only screen and (min-width: 1000px) {
+  .pokemon_data {
+    flex: 0 120px;
+  }
+  .pokemon_stats {
+    flex: 0 250px;
+  }
+}
+
 /* Smaller than
 	============================================ */
 @media only screen and (max-width: 1000px) {
@@ -569,37 +587,21 @@ Responsiveness
   #home .home_container {
     height: 270px;
   }
-}
 
-@media only screen and (max-width: 900px) {
   .pokemon {
-    width: 100%;
+    width: 500px;
+  }
+  .pokemon_name .main {
+    display: none;
+  }
+  .pokemon_name .mobile {
+    display: block;
   }
   .pokemon_details {
     flex-direction: column;
   }
-  .pokemon_name .name_en {
-    text-align: center;
-  }
-  .pokemon_stats {
-    flex: unset;
-    width: 50%;
-    margin: 0 auto;
-  }
   .pokemon_family {
     text-align: center;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .pokemon_name {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .name_jp,
-  .pokemon_id {
-    position: unset;
   }
 }
 
@@ -624,24 +626,15 @@ Responsiveness
   .name_content {
     flex-direction: column;
   }
-}
 
-@media only screen and (max-width: 500px) {
-  .pokemon_container {
-    width: 100%;
-  }
-
-  .pokemon_image span {
-    width: 100%;
-  }
-  .pokemon_stats {
+  .pokemon {
     width: 90%;
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .pokemon_name .name_en {
-    font-size: 2rem;
+@media only screen and (max-width: 530px) {
+  .pokemon_image span {
+    width: 100%;
   }
 }
 
