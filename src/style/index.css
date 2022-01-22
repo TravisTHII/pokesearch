@@ -289,6 +289,7 @@ Pokemon
 */
 
 .pokemon_container {
+  width: 100%;
   padding: 50px 0;
 }
 
@@ -328,11 +329,13 @@ Pokemon
   left: 50px;
   z-index: -1;
 }
+.pokemon_name .mobile {
+  display: none;
+}
 .pokemon_details {
   display: flex;
 }
 .pokemon_data {
-  flex: 0 120px;
   text-align: center;
 }
 .pokemon_data > div:not(:last-child),
@@ -368,11 +371,7 @@ Pokemon
   justify-content: center;
 }
 .pokemon_image span {
-  width: 475px;
-  height: 475px;
-}
-.pokemon_stats {
-  flex: 0 250px;
+  max-height: 475px;
 }
 .pokemon_stats h2 {
   text-align: center;
@@ -391,15 +390,18 @@ Pokemon
   list-style: none;
   font-size: 1.3rem;
 }
-.stats_list li span {
+.stats_list li span,
+.mobile ul li span {
   display: block;
 }
-.stats_list span:first-child {
+.stats_list span:first-child,
+.mobile ul li span:first-child {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: bold;
 }
-.stats_list span:last-child {
+.stats_list span:last-child,
+.mobile ul li span:last-child {
   padding-left: 10px;
 }
 .stats_list .base_stat {
@@ -553,6 +555,17 @@ Responsiveness
 ===============
 */
 
+/* Larger than
+	============================================ */
+@media only screen and (min-width: 1000px) {
+  .pokemon_data {
+    flex: 0 120px;
+  }
+  .pokemon_stats {
+    flex: 0 250px;
+  }
+}
+
 /* Smaller than
 	============================================ */
 @media only screen and (max-width: 1000px) {
@@ -574,37 +587,21 @@ Responsiveness
   #home .home_container {
     height: 270px;
   }
-}
 
-@media only screen and (max-width: 900px) {
   .pokemon {
-    width: 100%;
+    width: 500px;
+  }
+  .pokemon_name .main {
+    display: none;
+  }
+  .pokemon_name .mobile {
+    display: block;
   }
   .pokemon_details {
     flex-direction: column;
   }
-  .pokemon_name .name_en {
-    text-align: center;
-  }
-  .pokemon_stats {
-    flex: unset;
-    width: 50%;
-    margin: 0 auto;
-  }
   .pokemon_family {
     text-align: center;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .pokemon_name {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .name_jp,
-  .pokemon_id {
-    position: unset;
   }
 }
 
@@ -629,25 +626,15 @@ Responsiveness
   .name_content {
     flex-direction: column;
   }
-}
 
-@media only screen and (max-width: 500px) {
-  .pokemon_container {
-    width: 100%;
-  }
-
-  .pokemon_image span {
-    width: 100%;
-    height: unset;
-  }
-  .pokemon_stats {
+  .pokemon {
     width: 90%;
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .pokemon_name .name_en {
-    font-size: 2rem;
+@media only screen and (max-width: 530px) {
+  .pokemon_image span {
+    width: 100%;
   }
 }
 
