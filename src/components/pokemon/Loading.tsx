@@ -8,10 +8,12 @@ export const Loading = () => {
   })
 
   return (
-    <div className="flex_ui">
-      <animated.div className="pokeball_loading" style={styles}>
-        <img src="/images/pokeball.svg" alt="spinning poke ball" />
-      </animated.div>
+    <div className="pokeball_loading">
+      <animated.img
+        src="/images/pokeball.svg"
+        alt="spinning poke ball"
+        style={styles}
+      />
     </div>
   )
 }

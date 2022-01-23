@@ -5,12 +5,12 @@ import { PokemonProps } from './types'
 export const Pokemon = ({ pokemon }: PokemonProps) => (
   <div className="pokemon">
     <div className="pokemon_name">
-      <div className="main">
+      <div>
         <h1 className={`name_en ${pokemon.color}`}>{pokemon.name.en}</h1>
         <h2 className={`name_jp ${pokemon.color}`}>{pokemon.name.jp}</h2>
         <h3 className="pokemon_id">{pokemon.id}</h3>
       </div>
-      <div className="mobile">
+      <div>
         <ul className="card_ui list_divider">
           <li>
             <span>english</span>

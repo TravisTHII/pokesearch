@@ -296,7 +296,7 @@ Pokemon
 .pokemon {
   display: grid;
   grid-row-gap: 30px;
-  width: 900px;
+  width: 1000px;
   color: var(--gray);
 }
 .pokemon_name {
@@ -329,7 +329,7 @@ Pokemon
   left: 50px;
   z-index: -1;
 }
-.pokemon_name .mobile {
+.pokemon_name div:last-child {
   display: none;
 }
 .pokemon_details {
@@ -426,6 +426,7 @@ Pokeballs
 
 .pokeball_loading {
   width: 400px;
+  overflow: hidden;
 }
 
 .random_pokemon button {
@@ -437,30 +438,42 @@ Pokeballs
   filter: drop-shadow(0px 0px 5px var(--gray));
 }
 
-.pokeball_error_container {
-  position: relative;
-}
-.error_tips {
-  position: absolute;
-  top: 20%;
-  width: 100%;
-  text-align: center;
+.pokedex_error {
   color: var(--white);
+}
+.error_details {
+  position: absolute;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+}
+.error_details .error_container {
+  width: 100%;
+}
+.error_details .error_header {
+  text-align: center;
   text-shadow: 0 0 5px var(--black);
-  z-index: 1;
+  margin-bottom: 10px;
 }
-.error_tips h1,
-.error_tips h2 {
-  margin-bottom: 5px;
+.error_list {
+  background-color: var(--white);
 }
-.error_tips ul {
-  list-style: none;
+.error_list span {
+  display: block;
+  font-size: 13px;
+  color: var(--gray);
+  font-weight: bold;
+  margin-bottom: 10px;
 }
-.error_tips ul li:not(:last-child) {
-  margin-bottom: 5px;
+.error_list ul {
+  color: var(--gray);
+}
+.error_list ul li p {
+  line-height: 20px;
 }
 .pokeball_error {
-  width: 500px;
+  z-index: -1;
+  width: 100%;
   height: 500px;
 }
 .pokeball_error img {
@@ -591,10 +604,10 @@ Responsiveness
   .pokemon {
     width: 500px;
   }
-  .pokemon_name .main {
+  .pokemon_name div:first-child {
     display: none;
   }
-  .pokemon_name .mobile {
+  .pokemon_name div:last-child {
     display: block;
   }
   .pokemon_details {
@@ -635,6 +648,25 @@ Responsiveness
 @media only screen and (max-width: 530px) {
   .pokemon_image span {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .error_details {
+    width: 100%;
+  }
+  .error_details .error_container {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .pokeball_loading {
+    width: 100%;
+  }
+
+  .error_header h1 {
+    font-size: 1.5rem;
   }
 }
 
