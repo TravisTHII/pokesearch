@@ -3,7 +3,7 @@ export const Error = () => (
     <div className="error_details">
       <div className="error_container">
         <div className="error_header">
-          <h1>Oops an error occurred...</h1>
+          <h1>Oops, something went wrong...</h1>
           <h2>Tips</h2>
         </div>
         <div className="error_list card_ui">

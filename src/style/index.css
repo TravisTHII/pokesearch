@@ -455,6 +455,13 @@ Pokeballs
   text-shadow: 0 0 5px var(--black);
   margin-bottom: 10px;
 }
+.error_header h1 {
+  font-size: 1.7rem;
+}
+.error_header h1,
+.error_header h2 {
+  font-weight: normal;
+}
 .error_list {
   background-color: var(--white);
 }
