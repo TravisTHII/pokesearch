@@ -594,25 +594,6 @@ Responsiveness
 /* Smaller than
 	============================================ */
 @media only screen and (max-width: 1000px) {
-  /* #header:not(.home_header) {
-    height: 220px;
-  }
-  #header:not(.home_header) .header_container {
-    flex-direction: column;
-    align-items: center;
-  }
-  #header .header_container .header_logo {
-    height: 50px;
-  }
-  #search {
-    height: 90px;
-    flex-direction: column;
-  } */
-
-  #home .home_container {
-    height: 270px;
-  }
-
   .pokemon {
     width: 500px;
   }
@@ -630,21 +611,19 @@ Responsiveness
   }
 }
 
-@media only screen and (max-width: 550px) {
-  #home .home_container {
+@media only screen and (max-width: 610px) {
+  .home_container {
     width: 90%;
   }
-  #home .home_container .logo {
-    width: 100%;
-  }
-
   #search {
     width: 100%;
   }
   .search_main {
     width: 100%;
   }
+}
 
+@media only screen and (max-width: 550px) {
   .query_item {
     height: unset;
   }
