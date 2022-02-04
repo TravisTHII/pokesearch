@@ -125,11 +125,14 @@ Home
 }
 #home .home_container .logo {
   flex-direction: column;
-  width: 300px;
 }
 .logo .pokemon_logo {
-  width: 100%;
+  max-width: 300px;
   height: 120px;
+}
+.logo .pokemon_logo .logo_container {
+  width: 100%;
+  height: inherit;
 }
 .logo .tag_line {
   line-height: 30px;
