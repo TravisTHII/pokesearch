@@ -1,5 +1,5 @@
 import { IconContext } from 'react-icons'
-import { FiCode, FiGithub } from 'react-icons/fi'
+import { FiCode, FiGithub, FiMenu } from 'react-icons/fi'
 
 import { Props } from './types'
 
@@ -32,6 +32,13 @@ export const Header: React.FC<Props> = ({ children, className }) => (
             </li>
           </IconContext.Provider>
         </ul>
+      </div>
+      <div className="mobile_header_menu">
+        <IconContext.Provider value={{ size: '1.5rem', className: 'icon' }}>
+          <button className="menu_button">
+            <FiMenu />
+          </button>
+        </IconContext.Provider>
       </div>
     </div>
   </header>
