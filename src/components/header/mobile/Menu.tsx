@@ -1,8 +1,6 @@
 import { IconContext } from 'react-icons'
 import { FiCode, FiGithub } from 'react-icons/fi'
 
-// TODO: remove body scroll when menu is open -> global context
-
 export const Menu = () => (
   <div id="mobile_menu">
     <div className="container flex_ui">

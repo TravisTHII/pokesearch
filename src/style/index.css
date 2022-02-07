@@ -576,6 +576,10 @@ Common
   display: block;
 }
 
+.overflow_hidden {
+  overflow: hidden;
+}
+
 .pokemon_color_black {
   color: var(--pokemon-black);
 }

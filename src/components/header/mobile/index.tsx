@@ -2,10 +2,13 @@ import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { IconContext } from 'react-icons'
 import { FiMenu } from 'react-icons/fi'
+import { useHideBodyOverflow } from '../../../hooks'
 import { Menu } from './Menu'
 
 export const MobileMenu = () => {
   const [open, setOpen] = useState(false)
+
+  useHideBodyOverflow(open)
 
   return (
     <>
