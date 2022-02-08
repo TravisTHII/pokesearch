@@ -124,6 +124,7 @@ Header
   background-color: #ffffff;
   position: fixed;
   top: 50px;
+  z-index: 9;
 }
 #mobile_menu > .container {
   padding-top: 50px;
@@ -148,15 +149,15 @@ Home
 */
 
 #home {
-  height: 300px;
+  padding-top: 50px;
 }
 #home .home_container {
   flex-direction: column;
   justify-content: space-between;
-  height: 220px;
 }
 #home .home_container .logo {
   flex-direction: column;
+  margin-bottom: 30px;
 }
 .logo .pokemon_logo {
   max-width: 300px;
@@ -690,6 +691,15 @@ Responsiveness
 @media only screen and (max-width: 530px) {
   .pokemon_image span {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #search {
+    flex-direction: column;
+  }
+  .search_main {
+    margin-bottom: 10px;
   }
 }
 
