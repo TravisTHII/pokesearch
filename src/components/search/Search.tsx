@@ -6,9 +6,7 @@ import { useSearchContext } from '../../context/search'
 
 import { useOutsideClick } from '../../hooks'
 
-import { Query } from './query'
-import { RandomButton } from './RandomButton'
-import { SearchButton } from './SearchButton'
+import { Query, SearchButton, RandomButton } from './'
 
 export const Search = () => {
   const {
