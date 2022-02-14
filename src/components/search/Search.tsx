@@ -68,7 +68,9 @@ export const Search = () => {
         </div>
         <Query />
       </div>
-      <RandomButton />
+      <div className="random_pokemon">
+        <RandomButton />
+      </div>
     </div>
   )
 }

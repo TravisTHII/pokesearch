@@ -117,7 +117,7 @@ Header
   display: flex;
   align-items: center;
 }
-.mobile_header_menu > .container button {
+.mobile_header_menu > .container button:not(:first-child) {
   width: 50px;
   height: 50px;
 }
@@ -126,7 +126,31 @@ Header
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #2a75bb;
+  background-color: #ffffff;
+}
+.mobile_search .mbs_container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.mobile_search .mbs_container .mbs_main {
+  display: flex;
+  flex: 1;
+  border-radius: 20px;
+}
+.mobile_search .mbs_container .mbs_main > * {
+  background: transparent;
+}
+.mobile_search .mbs_container input {
+  flex: 1;
+  height: 40px;
+  padding: 5px 15px;
+  box-sizing: border-box;
+  border: none;
+}
+.mobile_search .mbs_container button {
+  width: 40px;
+  height: inherit;
 }
 
 #mobile_menu {
@@ -198,12 +222,12 @@ Searchbar
 .random_pokemon {
   margin-left: 10px;
 }
-.random_pokemon button {
+.randomize_pokemon {
   display: block;
   width: 40px;
   height: 40px;
 }
-.random_pokemon button img {
+.random_pokemon img {
   filter: drop-shadow(0px 0px 5px var(--gray));
 }
 .search_main {
