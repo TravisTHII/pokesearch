@@ -1,18 +1,16 @@
 import { useState } from 'react'
 import { IconContext } from 'react-icons'
 import { FiSearch, FiX } from 'react-icons/fi'
+import { useMobileContext } from '../../../context/mobile'
 
-interface Props {
-  showSearch: boolean
-  setShowSearch: (showSearch: boolean) => void
-}
+export const Search = () => {
+  const { showSearch } = useMobileContext()
 
-export const SearchBar = ({ showSearch, setShowSearch }: Props) => {
   const [value, setValue] = useState('')
 
   const closeSearchBar = () => {
     setValue('')
-    setShowSearch(!showSearch)
+    showSearch()
   }
 
   return (
