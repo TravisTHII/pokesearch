@@ -675,7 +675,7 @@ Responsiveness
 	============================================ */
 @media only screen and (max-width: 1000px) {
   .header_container #search,
-  .header_container .header_icons {
+  .pokedex_header .header_icons {
     display: none;
   }
 

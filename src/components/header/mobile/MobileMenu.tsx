@@ -16,21 +16,13 @@ export const MobileMenuWithContext = () => (
 const MobileMenu = () => {
   const { open, showSearchBar, openMenu, showSearch } = useMobileContext()
 
-  const openSearchBar = () => {
-    openMenu(false)
-    showSearch()
-  }
-
   return (
     <>
       <div className="mobile_header_menu">
         <IconContext.Provider value={{ size: '1.5rem', className: 'icon' }}>
           <div className="container">
             <RandomButton />
-            <button
-              className="mobile_search_button"
-              onClick={() => openSearchBar()}
-            >
+            <button className="mobile_search_button" onClick={showSearch}>
               <FiSearch />
             </button>
             <button className="menu_button" onClick={() => openMenu(!open)}>
