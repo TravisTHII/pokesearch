@@ -21,10 +21,10 @@ export const Provider = ({ children }: ProviderProps) => {
       payload: { open },
     })
 
-  const showSearch = () =>
+  const showSearch = (showSearchBar: boolean) =>
     dispatch({
       type: 'OPEN_SEARCH_BAR',
-      payload: { showSearchBar: !state.showSearchBar },
+      payload: { showSearchBar },
     })
 
   return (

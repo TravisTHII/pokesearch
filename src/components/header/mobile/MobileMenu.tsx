@@ -22,7 +22,10 @@ const MobileMenu = () => {
         <IconContext.Provider value={{ size: '1.5rem', className: 'icon' }}>
           <div className="container">
             <RandomButton />
-            <button className="mobile_search_button" onClick={showSearch}>
+            <button
+              className="mobile_search_button"
+              onClick={() => showSearch(!showSearchBar)}
+            >
               <FiSearch />
             </button>
             <button className="menu_button" onClick={() => openMenu(!open)}>

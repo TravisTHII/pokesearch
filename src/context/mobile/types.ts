@@ -6,7 +6,7 @@ export interface ProviderProps {
 
 export type InitialStateType = {
   openMenu: (open: boolean) => void
-  showSearch: () => void
+  showSearch: (showSearchBar: boolean) => void
 } & State
 
 export type State = {

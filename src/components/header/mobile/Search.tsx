@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { IconContext } from 'react-icons'
 import { FiSearch, FiX } from 'react-icons/fi'
+
 import { useMobileContext } from '../../../context/mobile'
 
 export const Search = () => {
@@ -10,7 +11,7 @@ export const Search = () => {
 
   const closeSearchBar = () => {
     setValue('')
-    showSearch()
+    showSearch(false)
   }
 
   return (
