@@ -23,9 +23,11 @@ export const Pokedex = () => {
   return (
     <>
       <Header className="pokedex_header">
-        <Link to="/" className="header_logo flex_ui">
-          <img src="/images/pokemon.svg" alt="Pokémon logo" />
-        </Link>
+        <div className="header_home_logo flex_ui">
+          <Link to="/">
+            <img src="/images/pokemon.svg" alt="Pokémon logo" />
+          </Link>
+        </div>
         <Search isLoading={isLoading} search={search} />
         <MobileMenu />
       </Header>
