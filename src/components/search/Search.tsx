@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
-import queryString from 'query-string'
+import { useNavigate } from 'react-router'
+import { IconContext } from 'react-icons'
 import { FiX } from 'react-icons/fi'
+import queryString from 'query-string'
 
 import { useSearchContext } from '../../context/search'
 
@@ -8,19 +10,22 @@ import { useOutsideClick } from '../../hooks'
 
 import { Query, SearchButton, RandomButton } from './'
 
+import { invalidValue } from '../../utils'
+
 export const Search = () => {
-  const {
-    search,
-    value,
-    active,
-    setValue,
-    setActive,
-    startSearch,
-    showResults,
-    handleSubmitSearch,
-  } = useSearchContext()
+  const { search, value, active, setValue, setActive } = useSearchContext()
+
+  const navigate = useNavigate()
 
   const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    const q = queryString.parse(search).search
+
+    if (q) setValue(String(q))
+
+    return () => setValue('')
+  }, [search, setValue])
 
   const SearchRef = useOutsideClick((e) => {
     const t = e.target as Element
@@ -30,13 +35,26 @@ export const Search = () => {
     }
   })
 
-  useEffect(() => {
-    const q = queryString.parse(search).search
+  const submitSearch = () => {
+    !invalidValue(value) && navigate(`/pokedex?search=${value.trim()}`)
+    if (active) setActive(false)
+  }
 
-    if (q) setValue(String(q))
+  const showResults = () => setActive(!invalidValue(value))
 
-    return () => setValue('')
-  }, [search, setValue])
+  const startSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+
+    setValue(value)
+    setActive(!invalidValue(value) === true)
+  }
+
+  const handleSubmitSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      submitSearch()
+      setActive(false)
+    }
+  }
 
   return (
     <div id="search">
@@ -54,18 +72,20 @@ export const Search = () => {
             onClick={showResults}
             onKeyPress={handleSubmitSearch}
           />
-          {value && (
-            <button
-              className="search_button flex_ui"
-              onClick={() => {
-                setValue('')
-                inputRef.current?.focus()
-              }}
-            >
-              <FiX />
-            </button>
-          )}
-          <SearchButton />
+          <IconContext.Provider value={{ size: '1.5rem' }}>
+            {value && (
+              <button
+                className="search_button flex_ui"
+                onClick={() => {
+                  setValue('')
+                  inputRef.current?.focus()
+                }}
+              >
+                <FiX />
+              </button>
+            )}
+            <SearchButton submitSearch={submitSearch} />
+          </IconContext.Provider>
         </div>
         <Query />
       </div>

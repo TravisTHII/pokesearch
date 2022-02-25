@@ -10,10 +10,6 @@ export type InitialStateType = {
   search: string
   setValue: (value: string) => void
   setActive: (active: boolean) => void
-  submitSearch: () => void
-  showResults: () => void
-  startSearch: (e: React.ChangeEvent<HTMLInputElement>) => void
-  handleSubmitSearch: (e: React.KeyboardEvent<HTMLInputElement>) => void
 } & State
 
 export type State = {
