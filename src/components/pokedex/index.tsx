@@ -22,7 +22,7 @@ export const Pokedex = () => {
 
   return (
     <>
-      <Header className="pokedex_header">
+      <Header className="pokedex_header flex_ui">
         <div className="header_home_logo flex_ui">
           <Link to="/">
             <img src="/images/pokemon.svg" alt="Pokémon logo" />
