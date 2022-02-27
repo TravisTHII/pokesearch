@@ -339,7 +339,6 @@ Searchbar
   display: flex;
   justify-content: space-between;
 }
-.query_header h1,
 .name_content:first-child {
   text-shadow: 0 0 3px var(--gray);
 }
