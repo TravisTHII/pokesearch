@@ -1,4 +1,3 @@
-import { createPortal } from 'react-dom'
 import { IconContext } from 'react-icons'
 import { FiMenu, FiSearch, FiX } from 'react-icons/fi'
 
@@ -37,7 +36,7 @@ const MobileMenu = () => {
         </IconContext.Provider>
       </div>
       {showSearchBar && <Search />}
-      {open && createPortal(<Menu />, document.querySelector('#header')!)}
+      {open && <Menu />}
     </>
   )
 }

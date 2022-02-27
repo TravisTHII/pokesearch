@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom'
 import { IconContext } from 'react-icons'
 import { FiCode, FiGithub } from 'react-icons/fi'
 
@@ -16,7 +17,7 @@ export const Menu = () => {
     }
   })
 
-  return (
+  return createPortal(
     <div id="mobile_menu" ref={menuRef}>
       <div className="container flex_ui">
         <IconContext.Provider value={{ size: '1.5em', className: 'icon' }}>
@@ -50,6 +51,7 @@ export const Menu = () => {
           </ul>
         </IconContext.Provider>
       </div>
-    </div>
+    </div>,
+    document.querySelector('#header')!
   )
 }
