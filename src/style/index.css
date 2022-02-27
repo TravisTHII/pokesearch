@@ -111,17 +111,21 @@ Header
   justify-content: flex-end;
 }
 
-.mobile_header_menu {
+.mobile_header {
   display: none;
   z-index: 11;
 }
-.mobile_header_menu > .container {
+.mobile_header > .container {
   display: flex;
-  align-items: center;
 }
-.mobile_header_menu > .container button:not(:first-child) {
+.mobile_header > .container button:not(:first-child),
+.mobile_header .rp_btn {
   width: 50px;
   height: 50px;
+}
+.mobile_header .rp_btn button {
+  width: 30px;
+  height: 30px;
 }
 
 .mobile_search {
@@ -675,7 +679,7 @@ Responsiveness
   #mobile_menu {
     display: block;
   }
-  .mobile_header_menu {
+  .mobile_header {
     display: block;
   }
   .mobile_search {

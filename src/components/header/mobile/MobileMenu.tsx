@@ -18,17 +18,19 @@ const MobileMenu = () => {
 
   return (
     <>
-      <div className="mobile_header_menu">
+      <div className="mobile_header">
         <IconContext.Provider value={{ size: '1.5rem', className: 'icon' }}>
           <div className="container">
-            <RandomButton />
+            <div className="rp_btn flex_ui">
+              <RandomButton />
+            </div>
             <button
-              className="mobile_search_button"
+              className="s_btn"
               onClick={() => showSearch(!showSearchBar)}
             >
               <FiSearch />
             </button>
-            <button className="menu_button" onClick={() => openMenu(!open)}>
+            <button className="m_btn" onClick={() => openMenu(!open)}>
               {open ? <FiX /> : <FiMenu />}
             </button>
           </div>
