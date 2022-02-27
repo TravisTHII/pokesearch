@@ -1,24 +1,24 @@
-import { Pokemon, PokemonResponseObject } from '../../types/Pokemon'
-
 import {
-  colorClass,
-  filterLanguage,
-  formatStats,
-  getEvolutionChain,
-} from './helpers'
+  EvolutionData,
+  Pokemon,
+  PokemonData,
+  SpeciesData,
+} from '../../types/Pokemon'
 
-export function createPokemonObject({
-  pokemon,
-  species,
-  evolution,
-}: PokemonResponseObject): Pokemon {
+import { filterLanguage, formatStats, getEvolutionChain } from './helpers'
+
+export function createPokemonObject(
+  pokemon: PokemonData,
+  species: SpeciesData,
+  evolution: EvolutionData
+): Pokemon {
   return {
     id: pokemon.id,
     name: {
       en: pokemon.name,
       jp: filterLanguage(species.names, 'ja')[0].name,
     },
-    color: colorClass(species.color.name),
+    color: `pokemon_color_${species.color.name}`,
     sprite: pokemon.sprites.other['official-artwork'].front_default,
     genus: filterLanguage(species.genera, 'en')[0].genus,
     abilities: pokemon.abilities,

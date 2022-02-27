@@ -115,10 +115,10 @@ Header
   display: none;
   z-index: 11;
 }
-.mobile_header > .container {
+.mobile_header .container {
   display: flex;
 }
-.mobile_header > .container button:not(:first-child),
+.mobile_header .container button:not(:first-child),
 .mobile_header .rp_btn {
   width: 50px;
   height: 50px;
@@ -136,27 +136,27 @@ Header
   background-color: #ffffff;
   z-index: 12;
 }
-.mobile_search .mbs_container {
+.mobile_search .container {
   display: flex;
   height: 100%;
   align-items: center;
 }
-.mobile_search .mbs_container .mbs_main {
+.mobile_search .container .mbs_main {
   display: flex;
   flex: 1;
   border-radius: 20px;
 }
-.mobile_search .mbs_container .mbs_main > * {
+.mobile_search .container .mbs_main > * {
   background: transparent;
 }
-.mobile_search .mbs_container input {
+.mobile_search .container input {
   flex: 1;
   height: 40px;
   padding: 5px 15px;
   box-sizing: border-box;
   border: none;
 }
-.mobile_search .mbs_container button {
+.mobile_search .container button {
   width: 40px;
   height: inherit;
 }
@@ -166,18 +166,18 @@ Header
   width: 100%;
   padding-top: 10px;
 }
-#mobile_menu > .container {
+#mobile_menu .container {
   color: var(--gray);
 }
-#mobile_menu > .container ul li {
+#mobile_menu .container ul li {
   height: 50px;
 }
-#mobile_menu > .container ul li a {
+#mobile_menu .container ul li a {
   height: 100%;
   display: flex;
   align-items: center;
 }
-#mobile_menu > .container ul li a span:first-child {
+#mobile_menu .container ul li a span:first-child {
   margin-right: 25px;
 }
 
