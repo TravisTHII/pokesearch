@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 import { Header } from '../header'
 import { Container } from '../pokemon'
 import { Search } from '../search'
-import { MobileMenu } from '../header/mobile'
+import { MobileHeader } from '../header/mobile'
 
 import { getPokemon } from '../../utils/pokemon'
 
@@ -29,7 +29,7 @@ export const Pokedex = () => {
           </Link>
         </div>
         <Search isLoading={isLoading} search={search} />
-        <MobileMenu />
+        <MobileHeader />
       </Header>
       <div className="pokemon_container flex_ui">
         <Container isLoading={isLoading} error={error} pokemon={data} />

@@ -10,7 +10,7 @@ const initialState: State = {
   active: false,
 }
 
-export const Context = createContext({} as InitialStateType)
+const Context = createContext({} as InitialStateType)
 
 export const useSearchContext = () => useContext(Context)
 

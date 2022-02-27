@@ -1,18 +1,12 @@
 import { IconContext } from 'react-icons'
 import { FiMenu, FiSearch, FiX } from 'react-icons/fi'
 
-import { MobileProvider, useMobileContext } from '../../../context/mobile'
+import { useMobileContext } from '../../../context/mobile'
 
-import { Menu, Search } from './'
+import { Menu, Search } from '.'
 import { RandomButton } from '../../search'
 
-export const MobileMenuWithContext = () => (
-  <MobileProvider>
-    <MobileMenu />
-  </MobileProvider>
-)
-
-const MobileMenu = () => {
+export const Header = () => {
   const { open, showSearchBar, openMenu, showSearch } = useMobileContext()
 
   return (

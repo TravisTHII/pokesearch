@@ -8,7 +8,7 @@ const initialState: State = {
   showSearchBar: false,
 }
 
-export const Context = createContext({} as InitialStateType)
+const Context = createContext({} as InitialStateType)
 
 export const useMobileContext = () => useContext(Context)
 
