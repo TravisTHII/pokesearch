@@ -128,39 +128,6 @@ Header
   height: 30px;
 }
 
-.mobile_search {
-  display: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff;
-  z-index: 12;
-}
-.mobile_search .container {
-  display: flex;
-  height: 100%;
-  align-items: center;
-}
-.mobile_search .container .mbs_main {
-  display: flex;
-  flex: 1;
-  border-radius: 20px;
-}
-.mobile_search .container .mbs_main > * {
-  background: transparent;
-}
-.mobile_search .container input {
-  flex: 1;
-  height: 40px;
-  padding: 5px 15px;
-  box-sizing: border-box;
-  border: none;
-}
-.mobile_search .container button {
-  width: 40px;
-  height: inherit;
-}
-
 #mobile_menu {
   display: none;
   width: 100%;
@@ -372,6 +339,67 @@ Searchbar
 }
 .box_shadow {
   box-shadow: 0 0 5px var(--gray);
+}
+
+.mobile_search {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 12;
+}
+.mobile_search .container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.mobile_search .container .mbs_main {
+  display: flex;
+  flex: 1;
+  border-radius: 20px;
+  width: 100%;
+}
+.mobile_search .container .mbs_main > * {
+  background: transparent;
+}
+.mobile_search .container input {
+  flex: 1;
+  height: 40px;
+  padding: 5px 15px;
+  box-sizing: border-box;
+  border: none;
+}
+.mobile_search .container button {
+  width: 40px;
+  height: inherit;
+}
+
+.ms_query {
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin-top: 15px;
+}
+.ms_query .msq_header {
+  margin-bottom: 10px;
+  color: var(--gray);
+}
+.ms_li .container {
+  display: flex;
+  align-items: center;
+}
+.ms_li .container .image {
+  width: 50px;
+  height: 50px;
+}
+.ms_li .container .data {
+  flex: 1;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+.ms_li .container .data h3 {
+  font-weight: normal;
 }
 
 /*
