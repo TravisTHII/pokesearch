@@ -10,13 +10,19 @@ export const Card = ({ pokemon }: CardProps) => (
       </div>
       <div className="query_info">
         <div className="query_header">
-          <h1 className={pokemon.color}>{pokemon.name.english}</h1>
+          <h1 className={`pokemon_color_${pokemon.color}`}>
+            {pokemon.name.english}
+          </h1>
           <div className="name_content">
             <div>
-              <h2 className={pokemon.color}>{pokemon.name.japanese}</h2>
+              <h2 className={`pokemon_color_${pokemon.color}`}>
+                {pokemon.name.japanese}
+              </h2>
             </div>
             <div className="genus_name_content">
-              <h2 className={pokemon.color}>{pokemon.genus}</h2>
+              <h2 className={`pokemon_color_${pokemon.color}`}>
+                {pokemon.genus}
+              </h2>
             </div>
           </div>
           <h3>{pokemon.id}</h3>

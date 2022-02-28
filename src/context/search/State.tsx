@@ -1,17 +1,8 @@
-import {
-  createContext,
-  useContext,
-  useReducer,
-  useCallback,
-  useRef,
-  useEffect,
-} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { createContext, useContext, useReducer, useCallback } from 'react'
+
 import { reducer } from './reducer'
 
 import { State, InitialStateType, ProviderProps } from './types'
-
-import { invalidValue } from '../../utils'
 
 const initialState: State = {
   isLoading: false,
@@ -19,22 +10,12 @@ const initialState: State = {
   active: false,
 }
 
-export const Context = createContext({} as InitialStateType)
+const Context = createContext({} as InitialStateType)
 
 export const useSearchContext = () => useContext(Context)
 
 export const Provider = ({ children, isLoading, search }: ProviderProps) => {
   const [state, dispatch] = useReducer(reducer, initialState)
-
-  const navigate = useNavigate()
-
-  const mounterRef = useRef(true)
-
-  useEffect(() => {
-    return () => {
-      mounterRef.current = false
-    }
-  }, [])
 
   const setValue = useCallback(
     (value: string) =>
@@ -48,36 +29,12 @@ export const Provider = ({ children, isLoading, search }: ProviderProps) => {
   )
 
   const setActive = (active: boolean) => {
-    if (mounterRef.current) {
-      dispatch({
-        type: 'SET_ACTIVE',
-        payload: {
-          active,
-        },
-      })
-    }
-  }
-
-  const submitSearch = () => {
-    !invalidValue(state.value) &&
-      navigate(`/pokedex?search=${state.value.trim()}`)
-    if (state.active) setActive(false)
-  }
-
-  const showResults = () => setActive(!invalidValue(state.value))
-
-  const startSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-
-    setValue(value)
-    setActive(!invalidValue(value) === true)
-  }
-
-  const handleSubmitSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      submitSearch()
-      setActive(false)
-    }
+    dispatch({
+      type: 'SET_ACTIVE',
+      payload: {
+        active,
+      },
+    })
   }
 
   return (
@@ -88,10 +45,6 @@ export const Provider = ({ children, isLoading, search }: ProviderProps) => {
         search,
         setValue,
         setActive,
-        submitSearch,
-        showResults,
-        startSearch,
-        handleSubmitSearch,
       }}
     >
       {children}

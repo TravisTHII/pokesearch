@@ -81,25 +81,7 @@ export type Evolution = {
   evolves_to: []
 }
 
-export type PokemonResponseObject = {
-  pokemon: PokemonData
-  species: SpeciesData
-  evolution: EvolutionData
-}
-
-export type PokemonResponse = {
-  data: PokemonData
-}
-
-export type SpeciesResponse = {
-  data: SpeciesData
-}
-
-export type EvolutionResponse = {
-  data: EvolutionData
-}
-
-type PokemonData = {
+export type PokemonData = {
   id: number
   name: string
   height: number
@@ -116,7 +98,7 @@ type PokemonData = {
   stats: Stats[]
 }
 
-type SpeciesData = {
+export type SpeciesData = {
   names: Names[]
   color: {
     name: string
@@ -129,6 +111,6 @@ type SpeciesData = {
   generation: NameUrl
 }
 
-type EvolutionData = {
+export type EvolutionData = {
   chain: Evolution
 }

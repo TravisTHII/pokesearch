@@ -4,6 +4,7 @@ import { useQuery } from 'react-query'
 import { Header } from '../header'
 import { Container } from '../pokemon'
 import { Search } from '../search'
+import { MobileHeader } from '../header/mobile'
 
 import { getPokemon } from '../../utils/pokemon'
 
@@ -21,11 +22,14 @@ export const Pokedex = () => {
 
   return (
     <>
-      <Header>
-        <Link to="/" className="header_logo flex_ui">
-          <img src="/images/pokemon.svg" alt="Pokémon logo" />
-        </Link>
+      <Header className="pokedex_header flex_ui">
+        <div className="header_home_logo flex_ui">
+          <Link to="/">
+            <img src="/images/pokemon.svg" alt="Pokémon logo" />
+          </Link>
+        </div>
         <Search isLoading={isLoading} search={search} />
+        <MobileHeader />
       </Header>
       <div className="pokemon_container flex_ui">
         <Container isLoading={isLoading} error={error} pokemon={data} />

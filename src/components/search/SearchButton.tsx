@@ -4,8 +4,12 @@ import { useSearchContext } from '../../context/search'
 
 import { Spinner } from '../includes/spinner'
 
-export const SearchButton = () => {
-  const { isLoading, submitSearch } = useSearchContext()
+interface Props {
+  submitSearch: () => void
+}
+
+export const SearchButton = ({ submitSearch }: Props) => {
+  const { isLoading } = useSearchContext()
 
   if (isLoading) {
     return (

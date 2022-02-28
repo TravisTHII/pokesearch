@@ -13,19 +13,24 @@ export const Pokemon = ({ pokemon }: PokemonProps) => (
       <div>
         <ul className="card_ui list_divider">
           <li>
-            <span>english</span>
+            <span>English</span>
             <span>
-              <h1 className={`${pokemon.color}`}>{pokemon.name.en}</h1>
+              <h1
+                className={`${pokemon.color}`}
+                style={{ textTransform: 'capitalize' }}
+              >
+                {pokemon.name.en}
+              </h1>
             </span>
           </li>
           <li>
-            <span>japanese</span>
+            <span>Japanese</span>
             <span>
               <h2 className={`${pokemon.color}`}>{pokemon.name.jp}</h2>
             </span>
           </li>
           <li>
-            <span>pokedex</span>
+            <span>Pokedex</span>
             <span>
               <h3 className={`${pokemon.color}`}>{pokemon.id}</h3>
             </span>
